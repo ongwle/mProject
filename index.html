@@ -13,22 +13,47 @@
 	</head>
 
 	<body>
-	<div class="container">
-		<div id="galleryTouch">
-		  <div id="imgs" style="-webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(0px, 0px, 0px);">
-		    <div class="image-1 zoomClass">
-		    	<img src="http://www.awwwards.com/awards/images/2013/02/touchswipe-img-1.png">
-		    </div>
-		    <img src="http://www.awwwards.com/awards/images/2013/02/touchswipe-img-2.png">
-		    <img src="http://www.awwwards.com/awards/images/2013/02/touchswipe-img-3.png">
-		  </div>
-		</div>
-	    
-	</div>
+		<div class ="container">
+			<div id="galleryTouch">
+			  <div id="imgs" style="-webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(0px, 0px, 0px);">
+
+			    <div class="">
+			    	<img id="image-1" class="img-responsive" src="http://www.awwwards.com/awards/images/2013/02/touchswipe-img-1.png">
+			    </div>
+			    <div class="">
+			  	  <img class="img-responsive" src="http://www.awwwards.com/awards/images/2013/02/touchswipe-img-2.png">
+			  	</div>
+			  	<div class="">
+			      <img class="img-responsive" src="http://www.awwwards.com/awards/images/2013/02/touchswipe-img-3.png">
+			    </div>
+			  </div>
+			</div>
+	    </div>
 		
 	    <script>
+
+	    	var height,width;
+	    	
+			$(document).ready(function() {
+			    $("img").load(function() {
+			        height = $(this).height();
+			        width = $(this).width();
+				});
+			});
+
 			$(function() {
-				var IMG_WIDTH = 340,
+
+				$(window).resize(function(){
+				   if($(this).width() != width){
+				      width = $(this).width();
+				       //console.log(width);
+				      height = $("#image-1").height();
+				      alert(height);
+				   }
+				});
+
+				// var img = document.getElementById('image-1'); 
+				var IMG_HEIGHT = height,
 				currentImg=0,
 				maxImages=3;
 				speed=500,
@@ -55,16 +80,16 @@
 						var duration=0;
 
 						if (direction == "up")
-							scrollImages((IMG_WIDTH * currentImg) + distance, duration);
+							scrollImages((IMG_HEIGHT * currentImg) + distance, duration);
 
 						else if (direction == "down")
-							scrollImages((IMG_WIDTH * currentImg) - distance, duration);
+							scrollImages((IMG_HEIGHT * currentImg) - distance, duration);
 					}
 
 					//Else, cancel means snap back to the begining
 					else if ( phase == "cancel")
 					{
-						scrollImages(IMG_WIDTH * currentImg, speed);
+						scrollImages(IMG_HEIGHT * currentImg, speed);
 					}
 
 					//Else end means the swipe was completed, so move to the next image
@@ -80,13 +105,13 @@
 				function previousImage()
 				{
 					currentImg = Math.max(currentImg-1, 0);
-					scrollImages( IMG_WIDTH * currentImg, speed);
+					scrollImages( IMG_HEIGHT * currentImg, speed);
 				}
 
 				function nextImage()
 				{
 					currentImg = Math.min(currentImg+1, maxImages-1);
-					scrollImages( IMG_WIDTH * currentImg, speed);
+					scrollImages( IMG_HEIGHT * currentImg, speed);
 				}
 
 				/**
@@ -101,6 +126,7 @@
 
 					imgs.css("-webkit-transform", "translate3d(0px,"+value +"px,0px)");
 				}
+
 
 				// window.onload=function(){
 				
