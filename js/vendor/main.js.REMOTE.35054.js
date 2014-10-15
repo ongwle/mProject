@@ -43,69 +43,47 @@ $(window).on('resize', function(){
             
 $(document).ready(function() {
 
-    $("#text-2").hide();
-    $("#text-3").hide();
-    $("#image-7").hide();
-    $("#text-4").hide();
-    $("#firstHeader").hide();
-    $("#firstSub").hide();
-    $("#firstArrow").hide();
-    $(".ui-loader").hide();
-
     var thumbprint = $(".pointer");
 
     var button2 = document.getElementById("fingerPrint");
 
-    // var button = new Hammer(button2);
+    var button = new Hammer(button2);
 
-    // button.add(new Hammer.Press({
-    //     event: 'press',
-    //     pointer: 1,
-    //     threshold: 10,
-    //     time: 350
-    // }));
+    button.add(new Hammer.Press({
+        event: 'press',
+        pointer: 1,
+        threshold: 10,
+        time: 350
+    }));
 
-<<<<<<< HEAD
-    //button.on('press', function(event) {
-        //trigger next screen
-    //});
-    
-    /////////////////////////////////////////////////////////////////////////////////////
-=======
     button.on('press', function(event) {
-        
+        //trigger next screen
         //fade out overlay
-         $('#signin').fadeOut('slow')
-         $('#signin').delay(600).css({'display':'none'});
+         $('#signin').fadeOut();
+         $('#signin').delay(500).css({'display':'none'});
         //start expanding bg
 
-         $('#firstPage').delay(600).css({'display':'block', 'opacity':'1'});
-         $('#first').delay(600).addClass("expand");
-         $("#firstHeader").delay(2000).fadeIn(1500);
-         $("#firstSub").delay(2200).fadeIn(1500);
-         $("#firstArrow").delay(2800).fadeIn(1500);
     });
 
     bgMusic = document.getElementById("song");
-   // bgMusic.play();
+    //bgMusic.play();
 
-
->>>>>>> 910b75f59b7681f2f6eefbb52303b1b3ad7be795
     $("img").load(function() {
-      
+        height = $(this).height();
+        width = $(this).width();
         $(function() {
             // var img = document.getElementById('image-1'); 
             var IMG_HEIGHT = height,
             currentImg=0,
-            maxImages=6;
+            maxImages=3;
             speed=500,
             imgs = $("#imgs");
 
             //Init touch swipe
             imgs.swipe( {
                 triggerOnTouchEnd : true,
-                swipeStatus : swipeStatus,
-                allowPageScroll:"NONE"
+                swipeStatus : swipeStatus
+                // allowPageScroll:"vertical"
             });
 
             /**
@@ -141,8 +119,6 @@ $(document).ready(function() {
                         previousImage()
                     else if (direction == "up")
                         nextImage()
-
-                    checkCurrentImage(currentImg);
                 }
             }
 
@@ -156,46 +132,8 @@ $(document).ready(function() {
             {
                 currentImg = Math.min(currentImg+1, maxImages-1);
                 scrollImages( IMG_HEIGHT * currentImg, speed);
-
             }
 
-            function checkCurrentImage(value){
-                switch (value) { 
-                    case 0: displayText('text-2');
-                        break;
-                    case 1: displayText('text-3');
-                        break;
-                    case 2: displayText('text-4');
-                        break;
-                    case 3: carTransition();
-<<<<<<< HEAD
-                        break;                  
-=======
-                        break; 
-                    default:
-                        alert('Nobody sucks!');
-                        break;
->>>>>>> 910b75f59b7681f2f6eefbb52303b1b3ad7be795
-                }
-            }
-
-            function displayText(id){
-                switch (id) {
-                    case 'text-2': $("#text-2").fadeIn(1500);
-                                   $("#text-3").hide();
-                                   $("#text-4").hide();
-                        break;
-                    case 'text-3': $("#text-3").fadeIn(1500);
-                                   $("#text-2").hide();
-                                   $("#text-4").hide();
-                        break;
-                    case 'text-4': $("#text-4").fadeIn(1500);
-                                   $("#text-2").hide();
-                                   $("#text-3").hide();
-                        break;
-                }
-
-            }
             /**
              * Manually update the position of the imgs on drag
              */
@@ -208,32 +146,9 @@ $(document).ready(function() {
 
                 imgs.css("-webkit-transform", "translate3d(0px,"+value +"px,0px)");
             }
-
-
-            function carTransition() {
-
-                $("#hotspot").remove();
-                
-                img0 = 'images/6.jpg';
-                
-                $("#car-transition img").attr('src',img0).fadeIn(1400);
-
-                img = 'images/7.jpg';
-
-                $("#car-transition img").delay(1200).fadeOut(1400, function() {
-                    $("#image-6").attr('src',img);
-                    
-                }).fadeIn(1400);
-
-                img1 = 'images/5.jpg';
-
-                $("#car-transition").append("<input type='button' id='hotspot' />");
-
-            }    
-
-            //////////////////////////////////////////////////////////////////////////////////////////////
         });
     });
+
 });
 
 function toggleMusic(){
