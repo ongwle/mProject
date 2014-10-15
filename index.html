@@ -2,18 +2,47 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Swipe</title>
+		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+		<title>Mercedes Benz</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/image.css" />
+		<link rel="stylesheet" href="css/styles.css?p=101"/>
+
 		<script src="js/bootstrap/jquery-2.1.1.min.js"></script>
-	    <script src="js/bootstrap/bootstrap.min.js"></script>
+		<script src="js/vendor/jquery.mobile-1.4.4.min.js"></script>
+		<script src="js/bootstrap/bootstrap.min.js"></script>
+
+	
+		<script src="js/vendor/hammer.js"></script>
+	    
 		<script src="js/vendor/modernizr.js"></script>
 		<script src="js/vendor/jquery.touchSwipe.js"></script>
+		<script src="js/vendor/main.js"></script>
+
 	</head>
 
 	<body>
-		
+
+		<section id="preloader">
+			<div id="overlayBlack"></div>
+			<div id="status">&nbsp;</div>
+		</section>
+
+		<section id="signin" style="display:none;">
+			<div id="overlayBlack"></div>
+		    <div class="intro-bg">
+		        <span class="font">开启你的领袖风范</span>
+		        <div id="fingerPrint" class="pointer">
+		        <!-- <div class="pointer" ng-click="pressing()" pj-finger="" style="touch-action: pan-y; -webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"> -->
+		            <div class="cursor c1"></div>
+		            <div class="cursor c2"></div>
+		        </div>
+		       
+		    </div>
+		</section>
+
+
+		<div class ="container" style="display:none">
 			<div id="galleryTouch">
 			  
 			  <div id="imgs" style="-webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(0px, 0px, 0px);">
@@ -37,13 +66,25 @@
 			  </div>
 			  <!-- end of imgs -->
 			</div>
-			<!-- end of galleryTouch -->
-	  
-	    <script>
+
+			<div class="horizontal" sc-on-remove="">
+				<span>请翻转手机竖屏浏览</span>
+			</div>
+			<!-- end of galleryTouch -->	  
+	<script>
 
 	    	var height,width;
 	    	
 			$(document).ready(function() {
+
+				$("#text-2").hide();
+				$("#text-3").hide();
+				$("#image-7").hide();
+
+
+			    $("#text-4").hide();
+
+				
 			    $("img").load(function() {
 			        height = $(this).height();
 			        width = $(this).width();
@@ -116,24 +157,35 @@
 
 						function checkCurrentImage(value){
 							switch (value) { 
-							    case 0: 
+							    case 0: displayText('text-2');
 							    	break;
-							    case 1: displayText('','image-2');
+							    case 1: displayText('text-3');
 							        break;
-							    case 2: 
-							        alert('prototype sucks!');
-							    case 'mootools': 
-							        alert('mootools sucks!');   
-							    case 'dojo': 
-							        alert('dojo sucks!');
+							    case 2: displayText('text-4');
 							        break;
+							    case 3: carTransition();
+							        break; 
 							    default:
 							        alert('Nobody sucks!');
 							}
 						}
 
-						function displayText(sentence,id){
-							alert(sentence + id);
+						function displayText(id){
+							switch (id) {
+								case 'text-2': $("#text-2").fadeIn(1500);
+											   $("#text-3").hide();
+											   $("#text-4").hide();
+									break;
+								case 'text-3': $("#text-3").fadeIn(1500);
+											   $("#text-2").hide();
+											   $("#text-4").hide();
+									break;
+								case 'text-4': $("#text-4").fadeIn(1500);
+											   $("#text-2").hide();
+											   $("#text-3").hide();
+									break;
+							}
+
 						}
 						/**
 						 * Manually update the position of the imgs on drag
@@ -148,34 +200,20 @@
 							imgs.css("-webkit-transform", "translate3d(0px,"+value +"px,0px)");
 						}
 
-
-						// window.onload=function(){
-						
-						//     $("#image-1").addClass("zoom");
-						//     setTimeout(function(){
-						//     $("#image-1").removeClass("zoom");
-						//     },5000);
-						// }
-
+						function carTransition() {
+							imgs.swipe("disable");
+							$( "#image-7").css();
+							$( "#image-7" ).delay( 800 ).fadeIn( 400 );
+							
+						}
 
 					});
 				});
-
-				// $(window).resize(function(){
-				//    if($(this).width() != width){
-				//       width = $(this).width();
-				//        //console.log(width);
-				//       height = $("#image-2").height();
-				//       // alert(height);
-				//    }
-				// });
-
 				
 			});
-
-			
-
 	    </script>
+	    </div>
+		<!-- end of container -->
 	</body>
 
 </html>
