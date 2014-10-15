@@ -9,6 +9,8 @@
     z-index: 1000;
     position: absolute;
     left: 38%;
+    left: 70%;
+    bottom:10%;
 }
 
 input#pop-up1    {

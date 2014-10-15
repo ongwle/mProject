@@ -53,6 +53,12 @@ $(document).ready(function() {
     threeAnimationHide();
     fourAnimationHide();
     firstScreenAnimationHide();
+    fiveAnimationHide();
+
+    $('#image-2').hide();
+        $('#image-3').hide();
+        $('#image-4').hide();
+        $('#car-transition').hide();
 
     var thumbprint = $(".pointer");
 
@@ -76,7 +82,15 @@ $(document).ready(function() {
 
          $('#firstPage').delay(600).css({'display':'block', 'opacity':'1'});
         firstScreenAnimation();
+
+         $('#image-2').show();
+        $('#image-3').show();
+        $('#image-4').show();
+        $('#car-transition').show();
     });
+
+
+
 
     bgMusic = document.getElementById("song");
    // bgMusic.play();
@@ -89,7 +103,7 @@ $(document).ready(function() {
         $("#image-2").height($("#firstPage").height());
         $("#image-3").height($("#firstPage").height());
         $("#image-4").height($("#firstPage").height());
-        $("#i#car-transition").height($("#firstPage").height());
+        $("#car-transition").height($("#firstPage").height());
     
 
       
@@ -161,9 +175,6 @@ $(document).ready(function() {
                 currentImg = Math.min(currentImg+1, maxImages-1);
                 scrollImages( IMG_HEIGHT * currentImg, speed);
 
-                console.log("3 " +IMG_HEIGHT);
-                console.log("4 "+currentImg);
-
             }
 
             function checkCurrentImage(value){
@@ -191,22 +202,26 @@ $(document).ready(function() {
                                     threeAnimationHide();
                                     fourAnimationHide();
                                    firstScreenAnimation();
+                                   fiveAnimationHide();
                         break;
                     case 'text-2': secondAnimation();
                                     threeAnimationHide();
                                     fourAnimationHide();
                                     firstScreenAnimationHide();
+                                    fiveAnimationHide();
                                    $('#first').removeClass("expand");
                         break;
                     case 'text-3': secondAnimationHide();
                                     threeAnimation();
                                     fourAnimationHide();
                                     firstScreenAnimationHide();
+                                    fiveAnimationHide();
                         break;
                     case 'text-4': secondAnimationHide();
                                     threeAnimationHide();
                                     fourAnimation();
                                     firstScreenAnimationHide();
+                                    fiveAnimationHide();
                         break;
                 }
 
@@ -227,22 +242,24 @@ $(document).ready(function() {
 
             function carTransition() {
 
-                $("#hotspot").remove();
+                secondAnimationHide();
+                threeAnimationHide();
+                fourAnimationHide();
+                firstScreenAnimationHide();
+
+            
+                $("#bigcar").attr('src','images/bigCar.jpg').addClass("expand2").fadeIn(1500);
+
+                $("#image-6").delay(3000).fadeIn(1500, function(){
+                    $("#car-transition").append("<input type='button' id='hotspot' />");
+                });
+                $("#bigcar").delay(2800).fadeOut(1500, function() {
+                        $('#bigcar').removeClass("expand2");
+                        $("#bigcar").attr('src','');
+                    });
+
                 
-                img0 = 'images/6.jpg';
                 
-                $("#car-transition img").attr('src',img0).fadeIn(1400);
-
-                img = 'images/7.jpg';
-
-                $("#car-transition img").delay(1200).fadeOut(1400, function() {
-                    $("#image-6").attr('src',img);
-                    
-                }).fadeIn(1400);
-
-                img1 = 'images/5.jpg';
-
-                $("#car-transition").append("<input type='button' id='hotspot' />");
 
                 $("#pop-up1").hide();
                 $("#pop-up2").hide();
@@ -307,6 +324,12 @@ function threeAnimationHide(){
 function fourAnimationHide(){
     $("#text4").hide();
     $("#text4sub").hide();
+}
+
+function fiveAnimationHide(){
+    $("#hotspot").remove();
+    $("#image-6").hide();
+    $("#bigcar").hide();
 }
 
 
