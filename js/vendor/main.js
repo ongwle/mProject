@@ -47,6 +47,9 @@ $(document).ready(function() {
     $("#text-3").hide();
     $("#image-7").hide();
     $("#text-4").hide();
+    $("#firstHeader").hide();
+    $("#firstSub").hide();
+    $("#firstArrow").hide();
 
     var thumbprint = $(".pointer");
 
@@ -64,10 +67,15 @@ $(document).ready(function() {
     button.on('press', function(event) {
         
         //fade out overlay
-         $('#signin').fadeOut();
-         $('#signin').delay(500).css({'display':'none'});
+         $('#signin').fadeOut('slow')
+         $('#signin').delay(600).css({'display':'none'});
         //start expanding bg
 
+         $('#firstPage').delay(600).css({'display':'block', 'opacity':'1'});
+         $('#first').delay(600).addClass("expand");
+         $("#firstHeader").delay(2000).fadeIn(1500);
+         $("#firstSub").delay(2200).fadeIn(1500);
+         $("#firstArrow").delay(2400).fadeIn(1500);
     });
 
     bgMusic = document.getElementById("song");
