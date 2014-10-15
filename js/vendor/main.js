@@ -6,11 +6,9 @@ $(window).load(function() { // makes sure the whole site is loaded
 
     $('#status').fadeOut(); // will first fade out the loading animation
     $('#preloader').delay(500).fadeOut('slow'); // will fade out the white DIV that covers the website.
-        
+    $('#signin').delay(500).css({'display':'block', 'opacity':'1'});    
 
-    if(height > width){
-        $('#signin').delay(500).css({'display':'block', 'opacity':'1'});
-    }else{
+    if(height < width){
         $("#horizontalDisplay").delay(500).css({'display':'block'});
     }
 });
@@ -34,10 +32,10 @@ $(function(){
 $(window).on('resize', function(){
         if($(window).height() < $(window).width()){
             $("#horizontalDisplay").delay(500).css({'display':'block'});
-            $('#signin').delay(500).css({'display':'none', 'opacity':'0'});
+            // $('#signin').delay(500).css({'display':'none', 'opacity':'0'});
         }else{
             $("#horizontalDisplay").delay(500).css({'display':'none'});
-            $('#signin').delay(500).css({'display':'block', 'opacity':'1'});
+            // $('#signin').delay(500).css({'display':'block', 'opacity':'1'});
         }
     });
             
@@ -68,7 +66,7 @@ $(document).ready(function() {
     button.on('press', function(event) {
         
         //fade out overlay
-         $('#signin').fadeOut('slow')
+         $('#signin').fadeOut(2200)
          $('#signin').delay(600).css({'display':'none'});
         //start expanding bg
 
@@ -81,10 +79,6 @@ $(document).ready(function() {
 
     bgMusic = document.getElementById("song");
    // bgMusic.play();
-
-   $("#firstArrow").click(function(){
-    
-   });
 
     $("img").load(function() {
       
