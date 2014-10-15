@@ -7,17 +7,17 @@
 }
 */
 /* Chrome, Safari, Opera */
-@-webkit-keyframes zoom {
+/*@-webkit-keyframes zoom {
     from {
     	-webkit-transform: scale(1,1);
     }
     to {
     	-webkit-transform: scale(1.5,1.5);
     }
-}
+}*/
 
 /* Standard syntax */
-@keyframes zoom {
+/*@keyframes zoom {
    from {
         transform: scale(1,1);
    }
@@ -25,7 +25,7 @@
         transform: scale(1.5,1.5);
    }
 }
-
+*/
 /*
 .image-1 img {
     -webkit-animation: zoom 50s;  Chrome, Safari, Opera 
@@ -38,9 +38,9 @@
 
 */
 
- .zoomClass {
+ /*.zoomClass {
    animation : 30s linear 1s normal none infinite zoominout
-}
+}*/
 
 /*.stretchToFit {
   position:fixed;
@@ -67,3 +67,15 @@
     -o-background-size: cover !important;
     background-size: cover !important;
 }*/
+
+#image-6 {
+  position: absolute;
+  left:0;
+  z-index: 1;
+}
+
+#image-7 {
+  left: 0;
+  top:0;
+  z-index: 0;
+}

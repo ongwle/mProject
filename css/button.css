@@ -1,0 +1,12 @@
+#hotspot {
+    width: 3em;
+    height: 4em;
+    /*padding-left: 2em;*/
+    padding: 0;
+	border: none;
+/*background: none;*/
+    background: transparent url(../images/hotspot.gif) .5em 50% no-repeat;
+    z-index: 1000;
+    position: absolute;
+    left: 38%;
+}

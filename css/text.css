@@ -1,18 +1,26 @@
-@-webkit-keyframes fade-in{
-    from{
-        opacity:1;
-        top:0px;
-    }
-    to{
-        opacity:0;
-        /* top:-5px; */
-    }
+#text-2 {
+  text-align: center;
+   z-index:100;
+   position: absolute; 
+   top: 5%; 
+   left: 15%; 
+   width: 70%; 
 }
 
-.text-animated-one{
-    display:inline;
-    position:relative;
-    top:0px;
-    -webkit-animation:fade-in 1s;
+#text-3 {
+   text-align: center;
+   z-index:100;
+   position: absolute; 
+   top: 40%; 
+   left: 15%; 
+   width: 70%; 
+}
 
+#text-4 {
+   text-align: center;
+   z-index:100;
+   position: absolute; 
+   top: 70%; 
+   left: 15%; 
+   width: 70%; 
 }

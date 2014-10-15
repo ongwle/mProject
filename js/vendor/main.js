@@ -40,18 +40,19 @@ $(document).ready(function() {
 
     var button2 = document.getElementById("fingerPrint");
 
-    var button = new Hammer(button2);
+    // var button = new Hammer(button2);
 
-    button.add(new Hammer.Press({
-        event: 'press',
-        pointer: 1,
-        threshold: 10,
-        time: 350
-    }));
+    // button.add(new Hammer.Press({
+    //     event: 'press',
+    //     pointer: 1,
+    //     threshold: 10,
+    //     time: 350
+    // }));
 
-    button.on('press', function(event) {
+    //button.on('press', function(event) {
         //trigger next screen
-    });
+    //});
+    
     /////////////////////////////////////////////////////////////////////////////////////
     $("img").load(function() {
         height = $(this).height();
@@ -61,7 +62,7 @@ $(document).ready(function() {
             // var img = document.getElementById('image-1'); 
             var IMG_HEIGHT = height,
             currentImg=0,
-            maxImages=10;
+            maxImages=6;
             speed=500,
             imgs = $("#imgs");
 
@@ -132,9 +133,7 @@ $(document).ready(function() {
                     case 2: displayText('text-4');
                         break;
                     case 3: carTransition();
-                        break; 
-                    default:
-                        alert('Nobody sucks!');
+                        break;                  
                 }
             }
 
@@ -169,10 +168,26 @@ $(document).ready(function() {
             }
 
             function carTransition() {
-                imgs.swipe("disable");
-                $( "#image-7").css();
-                $( "#image-7" ).delay( 800 ).fadeIn( 400 );
-            }
+
+                $("#hotspot").remove();
+                
+                img0 = 'images/6.jpg';
+                
+                $("#car-transition img").attr('src',img0).fadeIn(1400);
+
+                img = 'images/7.jpg';
+
+                $("#car-transition img").delay(1200).fadeOut(1400, function() {
+                    $("#image-6").attr('src',img);
+                    
+                }).fadeIn(1400);
+
+                img1 = 'images/5.jpg';
+
+                $("#car-transition").append("<input type='button' id='hotspot' />");
+
+            }    
+
             //////////////////////////////////////////////////////////////////////////////////////////////
         });
     });
