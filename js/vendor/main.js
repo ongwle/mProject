@@ -56,22 +56,15 @@ $(document).ready(function() {
 
     var button2 = document.getElementById("fingerPrint");
 
-    // var button = new Hammer(button2);
+    var button = new Hammer(button2);
 
-    // button.add(new Hammer.Press({
-    //     event: 'press',
-    //     pointer: 1,
-    //     threshold: 10,
-    //     time: 350
-    // }));
+    button.add(new Hammer.Press({
+        event: 'press',
+        pointer: 1,
+        threshold: 10,
+        time: 350
+    }));
 
-<<<<<<< HEAD
-    //button.on('press', function(event) {
-        //trigger next screen
-    //});
-    
-    /////////////////////////////////////////////////////////////////////////////////////
-=======
     button.on('press', function(event) {
         
         //fade out overlay
@@ -93,8 +86,6 @@ $(document).ready(function() {
     
    });
 
-
->>>>>>> 910b75f59b7681f2f6eefbb52303b1b3ad7be795
     $("img").load(function() {
       
         $(function() {
@@ -172,14 +163,11 @@ $(document).ready(function() {
                     case 2: displayText('text-4');
                         break;
                     case 3: carTransition();
-<<<<<<< HEAD
-                        break;                  
-=======
                         break; 
                     default:
                         alert('Nobody sucks!');
                         break;
->>>>>>> 910b75f59b7681f2f6eefbb52303b1b3ad7be795
+
                 }
             }
 
