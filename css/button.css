@@ -8,6 +8,6 @@
     background: transparent url(../images/hotspot.gif) .5em 50% no-repeat;
     z-index: 1000;
     position: absolute;
-    left: 70%;
-    bottom:10%;
+    left: 65%;
+    top:47%;
 }
