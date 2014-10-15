@@ -1,7 +1,13 @@
 $(window).load(function() { // makes sure the whole site is loaded
     $('#status').fadeOut(); // will first fade out the loading animation
     $('#preloader').delay(500).fadeOut('slow'); // will fade out the white DIV that covers the website.
-    $('#signin').delay(500).css({'display':'block', 'opacity':'1'});
+
+    $('#signin').delay(500).css({'display':'block', 'opacity':'1'});    
+
+    if(height < width){
+        $("#horizontalDisplay").delay(500).css({'display':'block'});
+    }
+
 });
 
 var height,width;
@@ -24,6 +30,17 @@ $(function(){
     //$(".pointer").removeClass('ng-click-active');
   }
 });
+
+$(window).on('resize', function(){
+        if($(window).height() < $(window).width()){
+            $("#horizontalDisplay").delay(500).css({'display':'block'});
+            // $('#signin').delay(500).css({'display':'none', 'opacity':'0'});
+        }else{
+            $("#horizontalDisplay").delay(500).css({'display':'none'});
+            // $('#signin').delay(500).css({'display':'block', 'opacity':'1'});
+        }
+    });
+
             
 $(document).ready(function() {
     
@@ -50,10 +67,28 @@ $(document).ready(function() {
     }));
 
     button.on('press', function(event) {
+
         trigger next screen
     });
     
     /////////////////////////////////////////////////////////////////////////////////////
+
+        
+        //fade out overlay
+         $('#signin').fadeOut(2200)
+         $('#signin').delay(600).css({'display':'none'});
+        //start expanding bg
+
+         $('#firstPage').delay(600).css({'display':'block', 'opacity':'1'});
+         $('#first').delay(600).addClass("expand");
+         $("#firstHeader").delay(2000).fadeIn(1500);
+         $("#firstSub").delay(2200).fadeIn(1500);
+         $("#firstArrow").delay(2800).fadeIn(1500);
+    });
+
+    bgMusic = document.getElementById("song");
+   // bgMusic.play();
+
     $("img").load(function() {
         height = $(this).height();
         width = $(this).width();
@@ -133,7 +168,11 @@ $(document).ready(function() {
                     case 2: displayText('text-4');
                         break;
                     case 3: carTransition();
-                        break;                  
+                        break; 
+                    default:
+                        alert('Nobody sucks!');
+                        break;
+
                 }
             }
 
