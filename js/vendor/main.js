@@ -1,22 +1,22 @@
+var height,width,bgMusic;
+
 $(window).load(function() { // makes sure the whole site is loaded
+    height = $(window).height();
+    width = $(window).width();
+
     $('#status').fadeOut(); // will first fade out the loading animation
     $('#preloader').delay(500).fadeOut('slow'); // will fade out the white DIV that covers the website.
-
     $('#signin').delay(500).css({'display':'block', 'opacity':'1'});    
 
     if(height < width){
         $("#horizontalDisplay").delay(500).css({'display':'block'});
     }
-
 });
-
-var height,width;
 
 $(function(){
   $(".pointer").bind( "vmouseup", tapRelease );
  
   function tapRelease( event ){
-   // alert("123");
     $(".pointer").removeClass('ng-click-active');
   }
 });
@@ -25,10 +25,8 @@ $(function(){
   $(".pointer").bind( "vmousedown", tapHandle );
  
   function tapHandle( event ){
-    console.log("123");
     $(".pointer").addClass('ng-click-active');
-    //$(".pointer").removeClass('ng-click-active');
-  }
+    }
 });
 
 $(window).on('resize', function(){
@@ -40,18 +38,17 @@ $(window).on('resize', function(){
             // $('#signin').delay(500).css({'display':'block', 'opacity':'1'});
         }
     });
-
             
 $(document).ready(function() {
-    
-    height = $(document).height();
-    width = $(document).width();
-    $(".text-2").hide();
-    $(".text-3").hide();
-    $(".image-7").hide();
 
-    $(".text-4").hide();
-
+    $("#text-2").hide();
+    $("#text-3").hide();
+    $("#image-7").hide();
+    $("#text-4").hide();
+    $("#firstHeader").hide();
+    $("#firstSub").hide();
+    $("#firstArrow").hide();
+    $(".ui-loader").hide();
 
     var thumbprint = $(".pointer");
 
@@ -67,12 +64,6 @@ $(document).ready(function() {
     }));
 
     button.on('press', function(event) {
-
-        trigger next screen
-    });
-    
-    /////////////////////////////////////////////////////////////////////////////////////
-
         
         //fade out overlay
          $('#signin').fadeOut(2200)
@@ -90,9 +81,7 @@ $(document).ready(function() {
    // bgMusic.play();
 
     $("img").load(function() {
-        height = $(this).height();
-        width = $(this).width();
-        // alert(height);
+      
         $(function() {
             // var img = document.getElementById('image-1'); 
             var IMG_HEIGHT = height,
@@ -178,17 +167,17 @@ $(document).ready(function() {
 
             function displayText(id){
                 switch (id) {
-                    case 'text-2': $(".text-2").fadeIn(1500);
-                                   $(".text-3").hide();
-                                   $(".text-4").hide();
+                    case 'text-2': $("#text-2").fadeIn(1500);
+                                   $("#text-3").hide();
+                                   $("#text-4").hide();
                         break;
-                    case 'text-3': $(".text-3").fadeIn(1500);
-                                   $(".text-2").hide();
-                                   $(".text-4").hide();
+                    case 'text-3': $("#text-3").fadeIn(1500);
+                                   $("#text-2").hide();
+                                   $("#text-4").hide();
                         break;
-                    case 'text-4': $(".text-4").fadeIn(1500);
-                                   $(".text-2").hide();
-                                   $(".text-3").hide();
+                    case 'text-4': $("#text-4").fadeIn(1500);
+                                   $("#text-2").hide();
+                                   $("#text-3").hide();
                         break;
                 }
 
@@ -206,6 +195,7 @@ $(document).ready(function() {
                 imgs.css("-webkit-transform", "translate3d(0px,"+value +"px,0px)");
             }
 
+
             function carTransition() {
 
                 $("#hotspot").remove();
@@ -217,19 +207,29 @@ $(document).ready(function() {
                 img = 'images/7.jpg';
 
                 $("#car-transition img").delay(1200).fadeOut(1400, function() {
-                    $(".image-6").attr('src',img);
-                    $("#car-transition").append("<input type='button' id='hotspot' />");
+                    $("#image-6").attr('src',img);
+                    
                 }).fadeIn(1400);
 
-                img1 = 'images/5.jpg'
+                img1 = 'images/5.jpg';
 
-            }        
+                $("#car-transition").append("<input type='button' id='hotspot' />");
+
+            }    
 
             //////////////////////////////////////////////////////////////////////////////////////////////
         });
     });
 });
 
-function pressing(){
-    alert("press");
+function toggleMusic(){
+
+    if($(".music-btn").hasClass("on")){
+        bgMusic.play();
+        $(".music-btn").removeClass("on");
+    }else{
+        bgMusic.pause();
+        $(".music-btn").addClass("on");
+    }
+
 }
