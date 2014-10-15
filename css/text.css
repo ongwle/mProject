@@ -1,14 +1,32 @@
-#text-2 {
-  text-align: center;
+#text2 {
+  /*text-align: center;*/
    z-index:100;
    position: absolute; 
-   top: 5%; 
+   top: 1%;
+   left: 8%;
+   width: 70%; 
+}
+
+#text2sub {
+  /*text-align: center;*/
+   z-index:100;
+   position: absolute; 
+   top: 6%;
+   left: 8%;
+   width: 70%; 
+}
+
+#text3 {
+   /*text-align: center;*/
+   z-index:100;
+   position: absolute; 
+   top: 34%;
    left: 15%; 
    width: 70%; 
 }
 
-#text-3 {
-   text-align: center;
+#text3sub {
+   /*text-align: center;*/
    z-index:100;
    position: absolute; 
    top: 40%; 
@@ -16,11 +34,20 @@
    width: 70%; 
 }
 
-#text-4 {
-   text-align: center;
+#text4 {
+   /*text-align: center;*/
    z-index:100;
    position: absolute; 
-   top: 70%; 
+   top: 68%; 
+   left: 15%; 
+   width: 70%; 
+}
+
+#text4sub {
+   /*text-align: center;*/
+   z-index:100;
+   position: absolute; 
+   top: 76%;
    left: 15%; 
    width: 70%; 
 }
