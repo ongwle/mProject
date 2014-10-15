@@ -22,11 +22,13 @@
 	</head>
 
 	<body>
+<<<<<<< HEAD
+=======
 		<audio controls="controls" autoplay loop preload="auto" id="song" style="display:none;">
 	        <source src="images/Freeflight.mp3" type="audio/mp3" />
 	    </audio>
 	    <a id="musicPlayer" class="music-btn" onclick="toggleMusic()"></a>
-
+>>>>>>> yiwen
 
 		<section id="preloader">
 			<div id="overlayBlack"></div>

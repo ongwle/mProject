@@ -1,24 +1,16 @@
-var height,width,bgMusic;
-
 $(window).load(function() { // makes sure the whole site is loaded
-    height = $(window).height();
-    width = $(window).width();
-
     $('#status').fadeOut(); // will first fade out the loading animation
     $('#preloader').delay(500).fadeOut('slow'); // will fade out the white DIV that covers the website.
-        
-
-    if(height > width){
-        $('#signin').delay(500).css({'display':'block', 'opacity':'1'});
-    }else{
-        $("#horizontalDisplay").delay(500).css({'display':'block'});
-    }
+    $('#signin').delay(500).css({'display':'block', 'opacity':'1'});
 });
+
+var height,width;
 
 $(function(){
   $(".pointer").bind( "vmouseup", tapRelease );
  
   function tapRelease( event ){
+   // alert("123");
     $(".pointer").removeClass('ng-click-active');
   }
 });
@@ -27,26 +19,22 @@ $(function(){
   $(".pointer").bind( "vmousedown", tapHandle );
  
   function tapHandle( event ){
+    console.log("123");
     $(".pointer").addClass('ng-click-active');
-    }
+    //$(".pointer").removeClass('ng-click-active');
+  }
 });
-
-$(window).on('resize', function(){
-        if($(window).height() < $(window).width()){
-            $("#horizontalDisplay").delay(500).css({'display':'block'});
-            $('#signin').delay(500).css({'display':'none', 'opacity':'0'});
-        }else{
-            $("#horizontalDisplay").delay(500).css({'display':'none'});
-            $('#signin').delay(500).css({'display':'block', 'opacity':'1'});
-        }
-    });
             
 $(document).ready(function() {
-
+    
+    height = $(document).height();
+    width = $(document).width();
     $("#text-2").hide();
     $("#text-3").hide();
     $("#image-7").hide();
+
     $("#text-4").hide();
+
 
     var thumbprint = $(".pointer");
 
@@ -62,20 +50,13 @@ $(document).ready(function() {
     }));
 
     button.on('press', function(event) {
-        
-        //fade out overlay
-         $('#signin').fadeOut();
-         $('#signin').delay(500).css({'display':'none'});
-        //start expanding bg
-
+        //trigger next screen
     });
-
-    bgMusic = document.getElementById("song");
-    //bgMusic.play();
-
-
+    /////////////////////////////////////////////////////////////////////////////////////
     $("img").load(function() {
-      
+        height = $(this).height();
+        width = $(this).width();
+        // alert(height);
         $(function() {
             // var img = document.getElementById('image-1'); 
             var IMG_HEIGHT = height,
@@ -154,7 +135,6 @@ $(document).ready(function() {
                         break; 
                     default:
                         alert('Nobody sucks!');
-                        break;
                 }
             }
 
@@ -188,7 +168,6 @@ $(document).ready(function() {
                 imgs.css("-webkit-transform", "translate3d(0px,"+value +"px,0px)");
             }
 
-
             function carTransition() {
                 imgs.swipe("disable");
                 $( "#image-7").css();
@@ -199,14 +178,6 @@ $(document).ready(function() {
     });
 });
 
-function toggleMusic(){
-
-    if($(".music-btn").hasClass("on")){
-        bgMusic.play();
-        $(".music-btn").removeClass("on");
-    }else{
-        bgMusic.pause();
-        $(".music-btn").addClass("on");
-    }
-
+function pressing(){
+    alert("press");
 }

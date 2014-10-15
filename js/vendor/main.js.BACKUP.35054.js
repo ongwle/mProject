@@ -42,11 +42,18 @@ $(window).on('resize', function(){
     });
             
 $(document).ready(function() {
-
+<<<<<<< HEAD
+    
+    height = $(document).height();
+    width = $(document).width();
     $("#text-2").hide();
     $("#text-3").hide();
     $("#image-7").hide();
+
     $("#text-4").hide();
+
+=======
+>>>>>>> yiwen
 
     var thumbprint = $(".pointer");
 
@@ -62,7 +69,11 @@ $(document).ready(function() {
     }));
 
     button.on('press', function(event) {
-        
+        //trigger next screen
+<<<<<<< HEAD
+    });
+    /////////////////////////////////////////////////////////////////////////////////////
+=======
         //fade out overlay
          $('#signin').fadeOut();
          $('#signin').delay(500).css({'display':'none'});
@@ -73,9 +84,11 @@ $(document).ready(function() {
     bgMusic = document.getElementById("song");
     //bgMusic.play();
 
-
+>>>>>>> yiwen
     $("img").load(function() {
-      
+        height = $(this).height();
+        width = $(this).width();
+        // alert(height);
         $(function() {
             // var img = document.getElementById('image-1'); 
             var IMG_HEIGHT = height,
@@ -154,7 +167,6 @@ $(document).ready(function() {
                         break; 
                     default:
                         alert('Nobody sucks!');
-                        break;
                 }
             }
 
@@ -187,7 +199,7 @@ $(document).ready(function() {
 
                 imgs.css("-webkit-transform", "translate3d(0px,"+value +"px,0px)");
             }
-
+<<<<<<< HEAD
 
             function carTransition() {
                 imgs.swipe("disable");
@@ -197,6 +209,11 @@ $(document).ready(function() {
             //////////////////////////////////////////////////////////////////////////////////////////////
         });
     });
+=======
+        });
+    });
+
+>>>>>>> yiwen
 });
 
 function toggleMusic(){
