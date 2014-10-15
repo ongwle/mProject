@@ -244,7 +244,19 @@ $(document).ready(function() {
 
                 $("#car-transition").append("<input type='button' id='hotspot' />");
 
+                $("#pop-up1").hide();
+                $("#pop-up2").hide();
+                $("#pop-up3").hide();
+                $("#pop-up4").hide();
+
             }    
+
+            $("#button").click(function(){
+                $("#pop-up1").delay(1000).fadeIn(1000);
+                $("#pop-up2").delay(1500).fadeIn(1000);
+                $("#pop-up3").delay(2000).fadeIn(1000);
+                $("#pop-up4").delay(2500).fadeIn(1000);
+            });
 
             //////////////////////////////////////////////////////////////////////////////////////////////
         });
