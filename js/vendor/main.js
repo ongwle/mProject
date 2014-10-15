@@ -44,13 +44,16 @@ $(window).on('resize', function(){
             
 $(document).ready(function() {
     
-    height = $(document).height();
-    width = $(document).width();
+    height = $(window).height();
+    width = $(window).width();
     $(".text-2").hide();
     $(".text-3").hide();
     $(".image-7").hide();
 
     $(".text-4").hide();
+
+    $("#firstHeader").hide();
+    $("#firstSub").hide();
 
 
     var thumbprint = $(".pointer");
@@ -67,13 +70,6 @@ $(document).ready(function() {
     }));
 
     button.on('press', function(event) {
-
-        trigger next screen
-    });
-    
-    /////////////////////////////////////////////////////////////////////////////////////
-
-        
         //fade out overlay
          $('#signin').fadeOut(2200)
          $('#signin').delay(600).css({'display':'none'});
@@ -90,8 +86,8 @@ $(document).ready(function() {
    // bgMusic.play();
 
     $("img").load(function() {
-        height = $(this).height();
-        width = $(this).width();
+       // height = $(window).height();
+        //width = $(this).width();
         // alert(height);
         $(function() {
             // var img = document.getElementById('image-1'); 
@@ -160,14 +156,16 @@ $(document).ready(function() {
             }
 
             function checkCurrentImage(value){
-                switch (value) { 
-                    case 0: displayText('text-2');
+                switch (value) {
+                    case 0: displayText('firstPageText');
+                        break; 
+                    case 1: displayText('text-2');
                         break;
-                    case 1: displayText('text-3');
+                    case 2: displayText('text-3');
                         break;
-                    case 2: displayText('text-4');
+                    case 3: displayText('text-4');
                         break;
-                    case 3: carTransition();
+                    case 4: carTransition();
                         break; 
                     default:
                         alert('Nobody sucks!');
@@ -178,9 +176,16 @@ $(document).ready(function() {
 
             function displayText(id){
                 switch (id) {
+                    case 'firstPageText': 
+                                $(".text-2").hide();
+                                $(".text-3").hide();
+                                $(".text-4").hide();
+                                $("#first").hide();
+                                break;
                     case 'text-2': $(".text-2").fadeIn(1500);
                                    $(".text-3").hide();
                                    $(".text-4").hide();
+                                   $("#first").hide();
                         break;
                     case 'text-3': $(".text-3").fadeIn(1500);
                                    $(".text-2").hide();
