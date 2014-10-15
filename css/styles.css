@@ -1,0 +1,140 @@
+﻿@charset "utf-8";
+body {
+	overflow: hidden;
+	background: #000;
+	color:#fff;
+}
+
+/* Preloader */
+#preloader, #signin {
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background:url(../images/landingBG.jpg) #000; /* change if the mask should have another color then white */
+	background-size: 100% 100%;
+	background-position: center;
+    background-repeat: no-repeat;
+	z-index:999; /* makes sure it stays on top */
+}
+
+#signin{
+	opacity: 0;
+	-webkit-transition: 0.5s all ease;
+	-o-transition: 0.5s all ease;
+	transition: 0.5s all ease;
+	z-index: 99;
+}
+
+#overlayBlack{
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background: #000; /* change if the mask should have another color then white */
+	background-size: 100% 100%;
+	opacity: 0.8;
+    background-repeat: no-repeat;
+	/*z-index:99;*/
+}
+
+#status {
+	width:200px;
+	height:200px;
+	position:absolute;
+	left:50%; /* centers the loading animation horizontally one the screen */
+	top:50%; /* centers the loading animation vertically one the screen */
+	background-image:url(../images/status.gif); /* path to your loading animation */
+	background-repeat:no-repeat;
+	background-position:center;
+	margin:-100px 0 0 -100px; /* is width and height divided by two */
+}
+
+.intro-bg{
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 50%;
+	position: relative;
+}
+
+.intro-bg .font{
+	padding-bottom:5%; 
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 200px;
+	text-align: center;
+	margin-left: -100px;
+	-webkit-transition: all ease 1s 2.4s;
+	-o-transition: all ease 1s 2.4s;
+	transition: all ease 1s 2.4s;
+}
+
+.arrow{
+	color: #515151;
+}
+
+.intro-bg .pointer {
+	-webkit-transition: opacity ease 1s 2s;
+	-o-transition: opacity ease 1s 2s;
+	transition: opacity ease 1s 2s;
+	width: 100%;
+	height: 150px;
+	position: absolute;
+	bottom: -100%;
+	text-align: center;
+
+	
+	/*opacity: 0;*/
+}
+
+.intro-bg .pointer .cursor {
+	height: 150px;
+	width: 90px;
+	left:50%;
+	margin-left: -45px;
+	position: absolute;
+	background: url(../images/thumbPrint_white.png) no-repeat center center;
+	background-size: 90px 150px;
+
+	/*border: 1px solid #fff;
+	-webkit-box-shadow:0 0 20px #fff; 
+	-moz-box-shadow: 0 0 20px #fff; 
+	box-shadow:0 0 20px #fff;*/
+
+	
+}
+
+.intro-bg .pointer .cursor.c2 {
+	-webkit-transition: height ease 0.3s;
+	-o-transition: height ease 0.3s;
+	transition: height ease 0.3s;
+	height: 0;
+	width: 90px;
+	overflow: hidden;
+	background: url(../images/thumbPrint_red.png) no-repeat top center;
+	background-size: 90px 150px;
+}
+
+.intro-bg .pointer .cursor.c2 img {
+ 	width: 100%;
+}
+.intro-bg .pointer .cursor.c2.on {
+ 	height: 150px;
+}
+
+.intro-bg .pointer.ng-click-active .c2 {
+ 	height: 150px;
+}
+
+.intro-bg.on {
+  opacity: 1;
+}
+
+.intro-bg.on .font {
+  bottom: 44%;
+  opacity: 1;
+}
+
