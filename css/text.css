@@ -1,0 +1,18 @@
+@-webkit-keyframes fade-in{
+    from{
+        opacity:1;
+        top:0px;
+    }
+    to{
+        opacity:0;
+        /* top:-5px; */
+    }
+}
+
+.text-animated-one{
+    display:inline;
+    position:relative;
+    top:0px;
+    -webkit-animation:fade-in 1s;
+
+}

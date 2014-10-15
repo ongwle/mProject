@@ -13,29 +13,32 @@
 	</head>
 
 	<body>
-		<div class ="container">
+		
 			<div id="galleryTouch">
 			  
 			  <div id="imgs" style="-webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(0px, 0px, 0px);">
-
-			    <div class="">
+<!-- 
+			    <div class="" style="">
 			    	<img class="img-responsive" src="images/1.jpg">
-			    </div>
+			    </div> -->
 			    
-			    <div class="">
+			    <div id="image-2" class="" style="">
 			  	  <img id="image-2" class="img-responsive" src="images/2.jpg">
 			  	</div>
 			  	
-			  	<div class="">
+			  	<div id="" class="" style="">
 			      <img class="img-responsive" src="images/3.jpg">
+			    </div>
+
+			    <div id="" class="" style="">
+			      <img class="img-responsive" src="images/4.jpg">
 			    </div>
 
 			  </div>
 			  <!-- end of imgs -->
 			</div>
 			<!-- end of galleryTouch -->
-	    </div>
-		<!-- end of container -->
+	  
 	    <script>
 
 	    	var height,width;
@@ -44,20 +47,20 @@
 			    $("img").load(function() {
 			        height = $(this).height();
 			        width = $(this).width();
-			       	alert(height);
+			       	// alert(height);
 				    $(function() {
 						// var img = document.getElementById('image-1'); 
 						var IMG_HEIGHT = height,
 						currentImg=0,
-						maxImages=3;
+						maxImages=10;
 						speed=500,
 						imgs = $("#imgs");
 
 						//Init touch swipe
 						imgs.swipe( {
 							triggerOnTouchEnd : true,
-							swipeStatus : swipeStatus
-							// allowPageScroll:"vertical"
+							swipeStatus : swipeStatus,
+							allowPageScroll:"NONE"
 						});
 
 						/**
@@ -93,6 +96,8 @@
 									previousImage()
 								else if (direction == "up")
 									nextImage()
+
+								checkCurrentImage(currentImg);
 							}
 						}
 
@@ -106,8 +111,30 @@
 						{
 							currentImg = Math.min(currentImg+1, maxImages-1);
 							scrollImages( IMG_HEIGHT * currentImg, speed);
+
 						}
 
+						function checkCurrentImage(value){
+							switch (value) { 
+							    case 0: 
+							    	break;
+							    case 1: displayText('','image-2');
+							        break;
+							    case 2: 
+							        alert('prototype sucks!');
+							    case 'mootools': 
+							        alert('mootools sucks!');   
+							    case 'dojo': 
+							        alert('dojo sucks!');
+							        break;
+							    default:
+							        alert('Nobody sucks!');
+							}
+						}
+
+						function displayText(sentence,id){
+							alert(sentence + id);
+						}
 						/**
 						 * Manually update the position of the imgs on drag
 						 */
