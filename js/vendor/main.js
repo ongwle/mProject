@@ -4,6 +4,8 @@ $(window).load(function() { // makes sure the whole site is loaded
     height = $(window).height();
     width = $(window).width();
 
+    $('.arrow').css('top',(height-50)+'px');
+
     $('#status').fadeOut(); // will first fade out the loading animation
     $('#preloader').delay(500).fadeOut('slow'); // will fade out the white DIV that covers the website.
     $('#signin').delay(500).css({'display':'block', 'opacity':'1'});    
@@ -93,7 +95,7 @@ $(document).ready(function() {
 
 
     bgMusic = document.getElementById("song");
-   // bgMusic.play();
+    bgMusic.play();
 
     $("img").load(function() {
 
@@ -251,7 +253,7 @@ $(document).ready(function() {
                 $("#bigcar").attr('src','images/bigCar.jpg').addClass("expand2").fadeIn(1500);
 
                 $("#image-6").delay(3000).fadeIn(1500, function(){
-                    $("#car-transition").append("<input type='button' id='hotspot' />");
+                    $("#car-transition").delay(8000).append("<input type='button' id='hotspot' />");
                 });
                 $("#bigcar").delay(2800).fadeOut(1500, function() {
                         $('#bigcar').removeClass("expand2");
