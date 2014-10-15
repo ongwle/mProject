@@ -50,6 +50,7 @@ $(document).ready(function() {
     $("#firstHeader").hide();
     $("#firstSub").hide();
     $("#firstArrow").hide();
+    $(".ui-loader").hide();
 
     var thumbprint = $(".pointer");
 
@@ -75,11 +76,11 @@ $(document).ready(function() {
          $('#first').delay(600).addClass("expand");
          $("#firstHeader").delay(2000).fadeIn(1500);
          $("#firstSub").delay(2200).fadeIn(1500);
-         $("#firstArrow").delay(2400).fadeIn(1500);
+         $("#firstArrow").delay(2800).fadeIn(1500);
     });
 
     bgMusic = document.getElementById("song");
-    //bgMusic.play();
+   // bgMusic.play();
 
 
     $("img").load(function() {
