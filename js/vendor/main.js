@@ -82,6 +82,10 @@ $(document).ready(function() {
     bgMusic = document.getElementById("song");
    // bgMusic.play();
 
+   $("#firstArrow").click(function(){
+    
+   });
+
 
     $("img").load(function() {
       
