@@ -29,6 +29,12 @@ $(document).ready(function() {
     
     height = $(document).height();
     width = $(document).width();
+    $("#text-2").hide();
+    $("#text-3").hide();
+    $("#image-7").hide();
+
+    $("#text-4").hide();
+
 
     var thumbprint = $(".pointer");
 
@@ -46,27 +52,24 @@ $(document).ready(function() {
     button.on('press', function(event) {
         //trigger next screen
     });
-
-
-
-
-
+    /////////////////////////////////////////////////////////////////////////////////////
     $("img").load(function() {
         height = $(this).height();
         width = $(this).width();
+        // alert(height);
         $(function() {
             // var img = document.getElementById('image-1'); 
             var IMG_HEIGHT = height,
             currentImg=0,
-            maxImages=3;
+            maxImages=10;
             speed=500,
             imgs = $("#imgs");
 
             //Init touch swipe
             imgs.swipe( {
                 triggerOnTouchEnd : true,
-                swipeStatus : swipeStatus
-                // allowPageScroll:"vertical"
+                swipeStatus : swipeStatus,
+                allowPageScroll:"NONE"
             });
 
             /**
@@ -102,6 +105,8 @@ $(document).ready(function() {
                         previousImage()
                     else if (direction == "up")
                         nextImage()
+
+                    checkCurrentImage(currentImg);
                 }
             }
 
@@ -115,8 +120,41 @@ $(document).ready(function() {
             {
                 currentImg = Math.min(currentImg+1, maxImages-1);
                 scrollImages( IMG_HEIGHT * currentImg, speed);
+
             }
 
+            function checkCurrentImage(value){
+                switch (value) { 
+                    case 0: displayText('text-2');
+                        break;
+                    case 1: displayText('text-3');
+                        break;
+                    case 2: displayText('text-4');
+                        break;
+                    case 3: carTransition();
+                        break; 
+                    default:
+                        alert('Nobody sucks!');
+                }
+            }
+
+            function displayText(id){
+                switch (id) {
+                    case 'text-2': $("#text-2").fadeIn(1500);
+                                   $("#text-3").hide();
+                                   $("#text-4").hide();
+                        break;
+                    case 'text-3': $("#text-3").fadeIn(1500);
+                                   $("#text-2").hide();
+                                   $("#text-4").hide();
+                        break;
+                    case 'text-4': $("#text-4").fadeIn(1500);
+                                   $("#text-2").hide();
+                                   $("#text-3").hide();
+                        break;
+                }
+
+            }
             /**
              * Manually update the position of the imgs on drag
              */
@@ -130,29 +168,14 @@ $(document).ready(function() {
                 imgs.css("-webkit-transform", "translate3d(0px,"+value +"px,0px)");
             }
 
-
-            // window.onload=function(){
-            
-            //     $("#image-1").addClass("zoom");
-            //     setTimeout(function(){
-            //     $("#image-1").removeClass("zoom");
-            //     },5000);
-            // }
-
-
+            function carTransition() {
+                imgs.swipe("disable");
+                $( "#image-7").css();
+                $( "#image-7" ).delay( 800 ).fadeIn( 400 );
+            }
+            //////////////////////////////////////////////////////////////////////////////////////////////
         });
     });
-
-    // $(window).resize(function(){
-    //    if($(this).width() != width){
-    //       width = $(this).width();
-    //        //console.log(width);
-    //       height = $("#image-2").height();
-    //       // alert(height);
-    //    }
-    // });
-
-    
 });
 
 function pressing(){

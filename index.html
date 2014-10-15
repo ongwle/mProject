@@ -50,17 +50,25 @@
 			    <div class="" style="">
 			    	<img class="img-responsive" src="images/1.jpg">
 			    </div> -->
-			    
+		    
 			    <div id="image-2" class="" style="">
 			  	  <img id="image-2" class="img-responsive" src="images/2.jpg">
+			  	  <p id="text-2">Conveniently engage client-centric "outside the box" thinking through future-proof e-services. Interactively engineer optimal infomediaries.</p></img>
 			  	</div>
 			  	
-			  	<div id="" class="" style="">
-			      <img class="img-responsive" src="images/3.jpg">
+			  	<div id="image-3" class="" style="">
+			      <img id="image" class="img-responsive" src="images/3.jpg">
+			        <p id="text-3">Interactively simplify emerging systems with mission-critical portals. Synergistically harness intuitive architectures.</p></img>
 			    </div>
 
-			    <div id="" class="" style="">
+			    <div id="image-4" class="" style="">
 			      <img class="img-responsive" src="images/4.jpg">
+			      <p id="text-4">Interactively simplify emerging systems with mission-critical portals. Synergistically harness intuitive architectures.</p></img>
+			    </div>
+
+			     <div id="image-6" class="" style="">
+			      <img id="image-6" class="img-responsive" src="images/6.jpg">
+			      <img id="image-7" class="img-responsive" src="images/7.jpg">
 			    </div>
 
 			  </div>
@@ -70,148 +78,7 @@
 			<div class="horizontal" sc-on-remove="">
 				<span>请翻转手机竖屏浏览</span>
 			</div>
-			<!-- end of galleryTouch -->	  
-	<script>
-
-	    	var height,width;
-	    	
-			$(document).ready(function() {
-
-				$("#text-2").hide();
-				$("#text-3").hide();
-				$("#image-7").hide();
-
-
-			    $("#text-4").hide();
-
-				
-			    $("img").load(function() {
-			        height = $(this).height();
-			        width = $(this).width();
-			       	// alert(height);
-				    $(function() {
-						// var img = document.getElementById('image-1'); 
-						var IMG_HEIGHT = height,
-						currentImg=0,
-						maxImages=10;
-						speed=500,
-						imgs = $("#imgs");
-
-						//Init touch swipe
-						imgs.swipe( {
-							triggerOnTouchEnd : true,
-							swipeStatus : swipeStatus,
-							allowPageScroll:"NONE"
-						});
-
-						/**
-						* Catch each phase of the swipe.
-						* move : we drag the div.
-						* cancel : we animate back to where we were
-						* end : we animate to the next image
-						*/
-						function swipeStatus(event, phase, direction, distance, fingers)
-						{
-							//If we are moving before swipe, and we are going L or R, then manually drag the images
-							if( phase=="move" && (direction=="up" || direction=="down") )
-							{
-								var duration=0;
-
-								if (direction == "up")
-									scrollImages((IMG_HEIGHT * currentImg) + distance, duration);
-
-								else if (direction == "down")
-									scrollImages((IMG_HEIGHT * currentImg) - distance, duration);
-							}
-
-							//Else, cancel means snap back to the begining
-							else if ( phase == "cancel")
-							{
-								scrollImages(IMG_HEIGHT * currentImg, speed);
-							}
-
-							//Else end means the swipe was completed, so move to the next image
-							else if ( phase =="end" )
-							{
-								if (direction == "down")
-									previousImage()
-								else if (direction == "up")
-									nextImage()
-
-								checkCurrentImage(currentImg);
-							}
-						}
-
-						function previousImage()
-						{
-							currentImg = Math.max(currentImg-1, 0);
-							scrollImages( IMG_HEIGHT * currentImg, speed);
-						}
-
-						function nextImage()
-						{
-							currentImg = Math.min(currentImg+1, maxImages-1);
-							scrollImages( IMG_HEIGHT * currentImg, speed);
-
-						}
-
-						function checkCurrentImage(value){
-							switch (value) { 
-							    case 0: displayText('text-2');
-							    	break;
-							    case 1: displayText('text-3');
-							        break;
-							    case 2: displayText('text-4');
-							        break;
-							    case 3: carTransition();
-							        break; 
-							    default:
-							        alert('Nobody sucks!');
-							}
-						}
-
-						function displayText(id){
-							switch (id) {
-								case 'text-2': $("#text-2").fadeIn(1500);
-											   $("#text-3").hide();
-											   $("#text-4").hide();
-									break;
-								case 'text-3': $("#text-3").fadeIn(1500);
-											   $("#text-2").hide();
-											   $("#text-4").hide();
-									break;
-								case 'text-4': $("#text-4").fadeIn(1500);
-											   $("#text-2").hide();
-											   $("#text-3").hide();
-									break;
-							}
-
-						}
-						/**
-						 * Manually update the position of the imgs on drag
-						 */
-						function scrollImages(distance, duration)
-						{
-							imgs.css("-webkit-transition-duration", (duration/1000).toFixed(1) + "s");
-
-							//inverse the number we set in the css
-							var value = (distance<0 ? "" : "-") + Math.abs(distance).toString();
-
-							imgs.css("-webkit-transform", "translate3d(0px,"+value +"px,0px)");
-						}
-
-						function carTransition() {
-							imgs.swipe("disable");
-							$( "#image-7").css();
-							$( "#image-7" ).delay( 800 ).fadeIn( 400 );
-							
-						}
-
-					});
-				});
-				
-			});
-	    </script>
+			<!-- end of galleryTouch -->
 	    </div>
 		<!-- end of container -->
 	</body>
