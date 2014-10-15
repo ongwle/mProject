@@ -41,14 +41,18 @@ $(window).on('resize', function(){
             
 $(document).ready(function() {
 
-    $("#text-2").hide();
-    $("#text-3").hide();
+    height = $(window).height();
+    width = $(window).width();
+
     $("#image-7").hide();
-    $("#text-4").hide();
-    $("#firstHeader").hide();
-    $("#firstSub").hide();
+
     $("#firstArrow").hide();
     $(".ui-loader").hide();
+
+    secondAnimationHide();
+    threeAnimationHide();
+    fourAnimationHide();
+    firstScreenAnimationHide();
 
     var thumbprint = $(".pointer");
 
@@ -71,22 +75,29 @@ $(document).ready(function() {
         //start expanding bg
 
          $('#firstPage').delay(600).css({'display':'block', 'opacity':'1'});
-         $('#first').delay(600).addClass("expand");
-         $("#firstHeader").delay(2000).fadeIn(1500);
-         $("#firstSub").delay(2200).fadeIn(1500);
-         $("#firstArrow").delay(2800).fadeIn(1500);
+        firstScreenAnimation();
     });
 
     bgMusic = document.getElementById("song");
    // bgMusic.play();
 
     $("img").load(function() {
+
+        var height2 = $(this).height();
+        var width2 = $(this).width();
+
+        $("#image-2").height($("#firstPage").height());
+        $("#image-3").height($("#firstPage").height());
+        $("#image-4").height($("#firstPage").height());
+        $("#i#car-transition").height($("#firstPage").height());
+    
+
       
         $(function() {
             // var img = document.getElementById('image-1'); 
-            var IMG_HEIGHT = height,
+            var IMG_HEIGHT = height2,
             currentImg=0,
-            maxImages=6;
+            maxImages=9;
             speed=500,
             imgs = $("#imgs");
 
@@ -110,11 +121,12 @@ $(document).ready(function() {
                 {
                     var duration=0;
 
-                    if (direction == "up")
+                    if (direction == "up"){
                         scrollImages((IMG_HEIGHT * currentImg) + distance, duration);
-
-                    else if (direction == "down")
+                    }
+                    else if (direction == "down"){
                         scrollImages((IMG_HEIGHT * currentImg) - distance, duration);
+                    }
                 }
 
                 //Else, cancel means snap back to the begining
@@ -139,6 +151,9 @@ $(document).ready(function() {
             {
                 currentImg = Math.max(currentImg-1, 0);
                 scrollImages( IMG_HEIGHT * currentImg, speed);
+                console.log("1 " +IMG_HEIGHT);
+                console.log("2 "+currentImg);
+
             }
 
             function nextImage()
@@ -146,20 +161,25 @@ $(document).ready(function() {
                 currentImg = Math.min(currentImg+1, maxImages-1);
                 scrollImages( IMG_HEIGHT * currentImg, speed);
 
+                console.log("3 " +IMG_HEIGHT);
+                console.log("4 "+currentImg);
+
             }
 
             function checkCurrentImage(value){
                 switch (value) { 
-                    case 0: displayText('text-2');
+                    case 0: displayText('firstPageText');
                         break;
-                    case 1: displayText('text-3');
+                    case 1: displayText('text-2');
                         break;
-                    case 2: displayText('text-4');
+                    case 2: displayText('text-3');
                         break;
-                    case 3: carTransition();
+                    case 3: displayText('text-4');
+                        break;
+                    case 4: carTransition();
                         break; 
                     default:
-                        alert('Nobody sucks!');
+                       // alert('Nobody sucks!');
                         break;
 
                 }
@@ -167,17 +187,26 @@ $(document).ready(function() {
 
             function displayText(id){
                 switch (id) {
-                    case 'text-2': $("#text-2").fadeIn(1500);
-                                   $("#text-3").hide();
-                                   $("#text-4").hide();
+                    case 'firstPageText': secondAnimationHide();
+                                    threeAnimationHide();
+                                    fourAnimationHide();
+                                   firstScreenAnimation();
                         break;
-                    case 'text-3': $("#text-3").fadeIn(1500);
-                                   $("#text-2").hide();
-                                   $("#text-4").hide();
+                    case 'text-2': secondAnimation();
+                                    threeAnimationHide();
+                                    fourAnimationHide();
+                                    firstScreenAnimationHide();
+                                   $('#first').removeClass("expand");
                         break;
-                    case 'text-4': $("#text-4").fadeIn(1500);
-                                   $("#text-2").hide();
-                                   $("#text-3").hide();
+                    case 'text-3': secondAnimationHide();
+                                    threeAnimation();
+                                    fourAnimationHide();
+                                    firstScreenAnimationHide();
+                        break;
+                    case 'text-4': secondAnimationHide();
+                                    threeAnimationHide();
+                                    fourAnimation();
+                                    firstScreenAnimationHide();
                         break;
                 }
 
@@ -221,6 +250,53 @@ $(document).ready(function() {
         });
     });
 });
+
+function firstScreenAnimation(){
+    $('#first').delay(600).addClass("expand");
+    $("#firstHeader").delay(2000).fadeIn(1500);
+    $("#firstSub").delay(2200).fadeIn(1500);
+    $("#firstArrow").delay(2800).fadeIn(1500);
+}
+
+function secondAnimation(){
+    $("#text2").fadeIn(1500);
+    $("#text2sub").delay(500).fadeIn(1500);
+}
+
+function threeAnimation(){
+    $("#text3").fadeIn(1500);
+    $("#text3sub").delay(500).fadeIn(1500);
+}
+
+function fourAnimation(){
+    $("#text4").fadeIn(1500);
+    $("#text4sub").delay(500).fadeIn(1500);
+}
+
+
+
+
+
+function firstScreenAnimationHide(){
+    $("#firstHeader").hide();
+    $("#firstSub").hide();
+}
+
+function secondAnimationHide(){
+    $("#text2").hide();
+    $("#text2sub").hide();
+}
+
+function threeAnimationHide(){
+    $("#text3").hide();
+    $("#text3sub").hide();
+}
+
+function fourAnimationHide(){
+    $("#text4").hide();
+    $("#text4sub").hide();
+}
+
 
 function toggleMusic(){
 

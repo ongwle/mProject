@@ -24,6 +24,42 @@ body {
 	padding:5%;
 }
 
+.secondPageText{
+	-webkit-transition: opacity ease 1s 2s;
+	-o-transition: opacity ease 1s 2s;
+	-mos-transition: opacity ease 1s 2s;
+	-ms-transition: opacity ease 1s 2s;
+	transition: opacity ease 1s 2s;
+
+	position: absolute;
+	top:26%;
+	padding:5%;
+}
+
+.thirdPageText{
+	-webkit-transition: opacity ease 1s 2s;
+	-o-transition: opacity ease 1s 2s;
+	-mos-transition: opacity ease 1s 2s;
+	-ms-transition: opacity ease 1s 2s;
+	transition: opacity ease 1s 2s;
+
+	position: absolute;
+	top:52%;
+	padding:5%;
+}
+
+.fourthPageText{
+	-webkit-transition: opacity ease 1s 2s;
+	-o-transition: opacity ease 1s 2s;
+	-mos-transition: opacity ease 1s 2s;
+	-ms-transition: opacity ease 1s 2s;
+	transition: opacity ease 1s 2s;
+
+	position: absolute;
+	top:78%;
+	padding:5%;
+}
+
 /* Preloader */
 #preloader, #signin {
 	position: fixed;
@@ -53,30 +89,35 @@ body {
 	top: -2%;
 }
 
+#firstPage, #image-2, #image-3, #image-4{
+	height: 100%;
+	width: 100%;
+}
+
 #firstPage{
-	position: fixed;
+	/*position: fixed;
 	top:0;
 	left:0;
 	right:0;
 	bottom:0;
-
-	background:url(../images/landingBG.jpg); 
+*/
+	/*background:url(../images/landingBG.jpg); 
 	background-size: 100% 100%;
 	background-position: top top;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;*/
 }
 
 .first-page{
-	position: fixed;
+	/*position: fixed;
 	top:0;
 	left:0;
 	right:0;
-	bottom:0;
+	bottom:0;*/
 
-	background:url(../images/landingBG.jpg); 
+	/*background:url(../images/landingBG.jpg); 
 	background-size: 100% 100%;
 	background-position: top top;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;*/
 }
 #logo{
 	z-index: 99999;
