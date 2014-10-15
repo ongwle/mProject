@@ -58,10 +58,15 @@ $(document).ready(function() {
 
     button.on('press', function(event) {
         //trigger next screen
+        //fade out overlay
+         $('#signin').fadeOut();
+         $('#signin').delay(500).css({'display':'none'});
+        //start expanding bg
+
     });
 
     bgMusic = document.getElementById("song");
-    bgMusic.play();
+    //bgMusic.play();
 
     $("img").load(function() {
         height = $(this).height();
@@ -141,15 +146,6 @@ $(document).ready(function() {
 
                 imgs.css("-webkit-transform", "translate3d(0px,"+value +"px,0px)");
             }
-
-
-            // window.onload=function(){
-            
-            //     $("#image-1").addClass("zoom");
-            //     setTimeout(function(){
-            //     $("#image-1").removeClass("zoom");
-            //     },5000);
-            // }
         });
     });
 

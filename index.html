@@ -22,7 +22,7 @@
 	</head>
 
 	<body>
-		<audio controls="controls" autoplay loop preload="auto" id="song">
+		<audio controls="controls" autoplay loop preload="auto" id="song" style="display:none;">
 	        <source src="images/Freeflight.mp3" type="audio/mp3" />
 	    </audio>
 	    <a id="musicPlayer" class="music-btn" onclick="toggleMusic()"></a>
@@ -47,8 +47,12 @@
 		            <div class="cursor c2"></div>
 		            <div class="arrow arrowSignIn animationBounce"></div>		        
 		        </div>
-		   		
 		    </div>
+		</section>
+
+		<section id="firstPage" style="display:none;">
+			<div class="first-page">
+			</div>
 		</section>
 
 
