@@ -5,11 +5,22 @@ body {
 	overflow-x: hidden !important;
 	background: #000;
 	color:#fff;
-	font-family: "Microsoft YaHei";
+	font-family: 'MicrosoftYahei';
 	font-size: 12pt;
 }
 .text-black{
 	color:#000;
+}
+
+.headerText{
+	font-size: 22pt;
+}
+.subText{
+	font-size:10pt;
+}
+
+.tinyText{
+	font-size: 9pt;
 }
 
 .firstPageText{
@@ -20,7 +31,7 @@ body {
 	transition: opacity ease 1s 2s;
 
 	position: absolute;
-	top:12%;
+	top:4%;
 	padding:5%;
 }
 
@@ -57,11 +68,24 @@ body {
 	transition: opacity ease 1s 2s;
 
 	position: absolute;
-	top:7%;
+	top:15%;
 	padding:5%;
 }
 
 .fifthPageText{
+	-webkit-transition: opacity ease 1s 2s;
+	-o-transition: opacity ease 1s 2s;
+	-mos-transition: opacity ease 1s 2s;
+	-ms-transition: opacity ease 1s 2s;
+	transition: opacity ease 1s 2s;
+	position: absolute;
+	top: 27%;
+	padding: 7%;
+	z-index: 100;
+}
+
+
+.sixPageText{
 	-webkit-transition: opacity ease 1s 2s;
 	-o-transition: opacity ease 1s 2s;
 	-mos-transition: opacity ease 1s 2s;
@@ -76,7 +100,32 @@ body {
 
 #firstArrow, #secondArrow, #thirdArrow, #fourthArrow, #fivthArrow{
 	bottom:20px;
+
+	position: relative;
+	top:24%;
+	padding:5%;
+
+	text-align: center;
+
 }
+
+.sevenPageText{
+	-webkit-transition: opacity ease 1s 2s;
+	-o-transition: opacity ease 1s 2s;
+	-mos-transition: opacity ease 1s 2s;
+	-ms-transition: opacity ease 1s 2s;
+	transition: opacity ease 1s 2s;
+
+	position: relative;
+	top:24%;
+	padding:5%;
+
+	text-align: center;
+}
+
+/*#firstArrow, #secondArrow, #thirdArrow, #fourthArrow, #fivthArrow{
+	bottom:20px;
+}*/
 
 /* Preloader */
 #preloader, #signin {
@@ -232,26 +281,20 @@ body {
 	transition: all ease 1s 2.4s;
 }
 
-.arrowDown{
-	bottom: 5%;
-}
-
 .arrow {
 	color: #515151;
 	position: absolute;
 	/*bottom: 0;*/
 	left: 50%;
 	margin-left:-20px;
-	width: 40px;
+	width: 50px;
 	height: 40px;
-	background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yOTMuNzUxLDQ1NS44NjhjLTIwLjE4MSwyMC4xNzktNTMuMTY1LDE5LjkxMy03My42NzMtMC41OTVsMCwwYy0yMC41MDgtMjAuNTA4LTIwLjc3My01My40OTMtMC41OTQtNzMuNjcyICBsMTg5Ljk5OS0xOTBjMjAuMTc4LTIwLjE3OCw1My4xNjQtMTkuOTEzLDczLjY3MiwwLjU5NWwwLDBjMjAuNTA4LDIwLjUwOSwyMC43NzIsNTMuNDkyLDAuNTk1LDczLjY3MUwyOTMuNzUxLDQ1NS44Njh6Ii8+DQo8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjIwLjI0OSw0NTUuODY4YzIwLjE4LDIwLjE3OSw1My4xNjQsMTkuOTEzLDczLjY3Mi0wLjU5NWwwLDBjMjAuNTA5LTIwLjUwOCwyMC43NzQtNTMuNDkzLDAuNTk2LTczLjY3MiAgbC0xOTAtMTkwYy0yMC4xNzgtMjAuMTc4LTUzLjE2NC0xOS45MTMtNzMuNjcxLDAuNTk1bDAsMGMtMjAuNTA4LDIwLjUwOS0yMC43NzIsNTMuNDkyLTAuNTk1LDczLjY3MUwyMjAuMjQ5LDQ1NS44Njh6Ii8+DQo8L3N2Zz4=);
-	background-size: contain;
+	/*background-image: url(../images/arrow.gif);*/
+	/*background-size: contain;*/
+}
 
-	-ms-transform: rotate(180deg); /* IE 9 */
-    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
-    transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
+.arrowSize{
+	width:35px;
 }
 
 .arrowSignIn{
@@ -447,6 +490,46 @@ body {
 @-o-keyframes cssAnimation2 {
 	from { -o-transform: scale(0.5); }
 	to { -o-transform: scale(1.8); }
+}
+
+.divPosition{
+	position: relative;
+}
+
+#pageSix{
+	background:url(../images/8.jpg) no-repeat top center;
+	background-size: 100% 100%;
+	background-attachment: top;
+}
+
+#finalPage{
+	background:url(../images/9.jpg)no-repeat top center;
+	background-size: 100% 100%;
+	background-attachment: top;
+}
+
+#registerForm{
+	width: 85%;
+	padding-top: 20%;
+}
+
+.custom
+  {
+    height:38px;
+    width:121px;
+    background:url(../images/submitBtn.png)no-repeat top center;
+    background-color: transparent;
+    border: none;
+}
+
+#uploadSuccess{
+
+	background: #efefef; /* change if the mask should have another color then white */
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    position: absolute;
+	top:0;
 }
 
 
