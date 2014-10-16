@@ -34,6 +34,78 @@ $(function(){
     }
 });
 
+$(function(){
+    $("#hotspot").bind("vmousedown", triggerHotspotImage);
+
+    function triggerHotspotImage(event){
+        console.log("adsfas");
+        $("#hotspot").fadeOut(1000);
+         $("#image-6").delay(500).fadeOut(800, function(){
+            $("#image-6").attr('src','images/5.jpg').fadeIn(800);
+            carAnimation();
+            popupAnimation();
+         });
+         
+    }
+});
+
+$(function(){
+    $("#popup1").bind("tap", triggerImage1);
+
+    function triggerImage1(event){
+        $("#overlayBlackForCarTransition").show();
+        $("#popupLg1").show();
+        $("#icon-close").show();
+        
+    }   
+
+});
+
+$(function(){
+    $("#popup2").bind("tap", triggerImage2);
+
+    function triggerImage2(event){
+        $("#overlayBlackForCarTransition").show();
+        $("#popupLg2").show();
+        $("#icon-close").show();
+    }   
+
+});
+
+$(function(){
+    $("#popup3").bind("tap", triggerImage3);
+
+    function triggerImage3(event){
+        $("#overlayBlackForCarTransition").show();
+        $("#popupLg3").show();
+        $("#icon-close").show();
+    }   
+
+});
+$(function(){
+    $("#popup4").bind("tap", triggerImage4);
+
+    function triggerImage4(event){
+        $("#overlayBlackForCarTransition").show();
+        $("#popupLg4").show();
+        $("#icon-close").show();
+    }   
+
+});
+
+$(function(){
+    $("#icon-close").bind("tap", triggerImage4Off);
+
+    function triggerImage4Off(event){
+        $("#overlayBlackForCarTransition").hide();
+        $("#icon-close").hide();
+        $("#popupLg1").hide();
+        $("#popupLg2").hide();
+        $("#popupLg3").hide();
+        $("#popupLg4").hide();
+    }   
+
+});
 
 $(window).on('resize', function(){
         if($(window).height() < $(window).width()){
@@ -74,22 +146,22 @@ $(document).ready(function() {
         $("#registerSubmitButton").hide();
         $("#formloading").show();
 
-        // $.ajax({                    
-        //         url: url,
-        //         type: 'POST',
-        //         data: JSON.stringify(postMSG),
-        //         contentType: "application/json; charset=utf-8",
-        //         dataType: 'json',
-        //         crossDomain: true,
-        //         success:function(msg) {
-        //             if (msg && msg.Status === true) {
-        //                 $("#uploadSuccess").show();
-        //             } else {
-        //                 $("#registerSubmitButton").show();
-        //                 alert("Unable to register");
-        //             }
-        //         }
-        //     });
+        $.ajax({                    
+                url: url,
+                type: 'POST',
+                data: JSON.stringify(postMSG),
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                crossDomain: true,
+                success:function(msg) {
+                    if (msg && msg.Status === true) {
+                        $("#uploadSuccess").show();
+                    } else {
+                        $("#registerSubmitButton").show();
+                        alert("Unable to register. Please Try Again.");
+                    }
+                }
+            });
     });
 
     height = $(window).height();
@@ -107,10 +179,18 @@ $(document).ready(function() {
     fiveAnimationHide();
     sixAnimationHide();
 
+    carAnimationHide();
+    imageAnimationHide();
+
     $('#image-2').hide();
-        $('#image-3').hide();
-        $('#image-4').hide();
-        $('#car-transition').hide();
+    $('#image-3').hide();
+    $('#image-4').hide();
+    $('#car-transition').hide();
+
+    $("#popup1").hide();
+    $("#popup2").hide();
+    $("#popup3").hide();
+    $("#popup4").hide();
 
     var thumbprint = $(".pointer");
 
@@ -140,8 +220,6 @@ $(document).ready(function() {
         $('#image-4').show();
         $('#car-transition').show();
     });
-
-
 
 
     bgMusic = document.getElementById("song");
@@ -262,6 +340,8 @@ $(document).ready(function() {
                                    firstScreenAnimation();
                                    fiveAnimationHide();
                                    sixAnimationHide();
+                                   carAnimationHide();
+                                   imageAnimationHide();
                         break;
                     case 'text-2': secondAnimation();
                                     threeAnimationHide();
@@ -270,6 +350,8 @@ $(document).ready(function() {
                                     fiveAnimationHide();
                                     sixAnimationHide();
                                    $('#first').removeClass("expand");
+                                   carAnimationHide();
+                                   imageAnimationHide();
                         break;
                     case 'text-3': secondAnimationHide();
                                     threeAnimation();
@@ -277,6 +359,8 @@ $(document).ready(function() {
                                     firstScreenAnimationHide();
                                     fiveAnimationHide();
                                     sixAnimationHide();
+                                    carAnimationHide();
+                                   imageAnimationHide();
                         break;
                     case 'text-4': secondAnimationHide();
                                     threeAnimationHide();
@@ -284,6 +368,8 @@ $(document).ready(function() {
                                     firstScreenAnimationHide();
                                     fiveAnimationHide();
                                     sixAnimationHide();
+                                    carAnimationHide();
+                                   imageAnimationHide();
                         break;
 
                     case 'sixPage': secondAnimationHide();
@@ -292,6 +378,8 @@ $(document).ready(function() {
                                     firstScreenAnimationHide();
                                     fiveAnimationHide();
                                     sixAnimation();
+                                    carAnimationHide();
+                                   imageAnimationHide();
                         break;
                 }
 
@@ -317,38 +405,33 @@ $(document).ready(function() {
                 fourAnimationHide();
                 firstScreenAnimationHide();
 
+                fiveAnimationHide();
+                carAnimationHide();
+                imageAnimationHide();
+
+                popupAnimationHide();
+
+
+
+                $("#image-6").attr('src','images/7.jpg');
+
             
                 $("#bigcar").attr('src','images/bigCar.jpg').addClass("expand2").fadeIn(1500);
 
-                $("#image-6").delay(3000).fadeIn(1500, function(){
-                    $("#car-transition").delay(8000).append("<input type='button' id='hotspot' />");
+                $("#image-6").delay(5000).fadeIn(1500, function(){
+                    $("#hotspot").delay(800).fadeIn(1500);
+                    $("#text6sub").delay(500).fadeIn(1500);
                 });
+
                 $("#bigcar").delay(2800).fadeOut(1500, function() {
-                        $('#bigcar').removeClass("expand2");
-                        $("#bigcar").attr('src','');
-                    });
-
-                
-                
-
-                $("#pop-up1").hide();
-                $("#pop-up2").hide();
-                $("#pop-up3").hide();
-                $("#pop-up4").hide();
-
+                    $('#bigcar').removeClass("expand2");
+                    $("#bigcar").attr('src','');
+                });
             }    
-
-            $("#button").click(function(){
-                $("#pop-up1").delay(1000).fadeIn(1000);
-                $("#pop-up2").delay(1500).fadeIn(1000);
-                $("#pop-up3").delay(2000).fadeIn(1000);
-                $("#pop-up4").delay(2500).fadeIn(1000);
-            });
-
-            //////////////////////////////////////////////////////////////////////////////////////////////
         });
     });
 });
+
 
 function firstScreenAnimation(){
     $('#first').delay(600).addClass("expand");
@@ -380,6 +463,20 @@ function sevenAnimationHide(){
     $("#uploadSuccess").fadeIn(1500);
 }
 
+function carAnimation(){
+    $("#text6sub").fadeOut();
+    $("#text5").delay(1500).fadeIn(1500);
+    $("#text5sub").delay(2000).fadeIn(1500);
+    $("#gallery").delay(2500).fadeIn(1500);
+}
+
+function popupAnimation(){
+    $("#popup1").delay(3000).fadeIn(1000);
+    $("#popup2").delay(3500).fadeIn(1000);
+    $("#popup3").delay(4000).fadeIn(1000);
+    $("#popup4").delay(4500).fadeIn(1000);
+}
+
 
 
 
@@ -405,7 +502,7 @@ function fourAnimationHide(){
 }
 
 function fiveAnimationHide(){
-    $("#hotspot").remove();
+    $("#hotspot").hide();
     $("#image-6").hide();
     $("#bigcar").hide();
 }
@@ -416,6 +513,29 @@ function sixAnimationHide(){
 
 function sevenAnimationHide(){
     $("#uploadSuccess").hide();
+}
+
+function carAnimationHide(){
+    $("#text5").hide();
+    $("#text5sub").hide();
+    $("#gallery").hide();
+    $("#overlayBlackForCarTransition").hide();
+    $("#icon-close").hide();
+    $("#text6sub").hide();
+}
+
+function popupAnimationHide(){
+    $("#popup1").hide();
+    $("#popup2").hide();
+    $("#popup3").hide();
+    $("#popup4").hide();
+}
+
+function imageAnimationHide(){
+    $("#popupLg1").hide();
+    $("#popupLg2").hide();
+    $("#popupLg3").hide();
+    $("#popupLg4").hide();
 }
 
 

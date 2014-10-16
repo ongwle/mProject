@@ -72,6 +72,19 @@ body {
 	padding:5%;
 }
 
+.fifthPageText{
+	-webkit-transition: opacity ease 1s 2s;
+	-o-transition: opacity ease 1s 2s;
+	-mos-transition: opacity ease 1s 2s;
+	-ms-transition: opacity ease 1s 2s;
+	transition: opacity ease 1s 2s;
+
+	position: absolute;
+	top: 27%;
+	padding: 7%;
+	z-index: 100;
+}
+
 .sixPageText{
 	-webkit-transition: opacity ease 1s 2s;
 	-o-transition: opacity ease 1s 2s;
@@ -84,6 +97,10 @@ body {
 	padding:5%;
 
 	text-align: center;
+}
+
+#text6sub{
+	margin-left: -16%;
 }
 
 .sevenPageText{
@@ -416,7 +433,7 @@ body {
 	padding-top: 10%;
 }
 
-#bigcar{
+#bigcar, #bigcar1{
 	position: absolute;
 	z-index: 2;
 	margin-top: 60%;
@@ -494,6 +511,19 @@ body {
 
     position: absolute;
 	top:0;
+}
+
+#overlayBlackForCarTransition{
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background: #000; /* change if the mask should have another color then white */
+	background-size: 100% 100%;
+	opacity: 0.8;
+    background-repeat: no-repeat;
+	z-index:99;
 }
 
 
