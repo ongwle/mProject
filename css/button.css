@@ -8,8 +8,12 @@
     background: transparent url(../images/hotspot.gif) .5em 50% no-repeat;
     z-index: 1000;
     position: absolute;
+<<<<<<< HEAD
     left: 65%;
     top:47%;
+=======
+    left: 38%;
+>>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
 }
 
 #gallery {

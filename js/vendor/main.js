@@ -196,6 +196,7 @@ $(document).ready(function() {
     threeAnimationHide();
     fourAnimationHide();
     firstScreenAnimationHide();
+<<<<<<< HEAD
     fiveAnimationHide();
     sixAnimationHide();
 
@@ -211,6 +212,8 @@ $(document).ready(function() {
     $("#popup2").hide();
     $("#popup3").hide();
     $("#popup4").hide();
+=======
+>>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
 
     var thumbprint = $(".pointer");
 
@@ -246,15 +249,7 @@ $(document).ready(function() {
 
          $('#firstPage').delay(600).css({'display':'block', 'opacity':'1'});
         firstScreenAnimation();
-
-         $('#image-2').show();
-        $('#image-3').show();
-        $('#image-4').show();
-        $('#car-transition').show();
     });
-
-
-
 
     bgMusic = document.getElementById("song");
     bgMusic.play();
@@ -276,11 +271,15 @@ $(document).ready(function() {
         $("#image-2").height($("#firstPage").height());
         $("#image-3").height($("#firstPage").height());
         $("#image-4").height($("#firstPage").height());
+<<<<<<< HEAD
         $("#car-transition").height($("#firstPage").height());
         $("#pageSix").height($("#firstPage").height());
         $("#finalPage").height($("#firstPage").height());
         $("#uploadSuccess").height($("#firstPage").height());
         $("#uploadSuccess").width($("#finalPage").width());
+=======
+        $("#i#car-transition").height($("#firstPage").height());
+>>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
     
 
       
@@ -350,6 +349,9 @@ $(document).ready(function() {
                 currentImg = Math.min(currentImg+1, maxImages-1);
                 scrollImages( IMG_HEIGHT * currentImg, speed);
 
+                console.log("3 " +IMG_HEIGHT);
+                console.log("4 "+currentImg);
+
             }
 
             function checkCurrentImage(value){
@@ -379,18 +381,24 @@ $(document).ready(function() {
                                     threeAnimationHide();
                                     fourAnimationHide();
                                    firstScreenAnimation();
+<<<<<<< HEAD
                                    fiveAnimationHide();
                                    sixAnimationHide();
 
                                    imageAnimationHide();
 
+=======
+>>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
                         break;
                     case 'text-2': secondAnimation();
                                     threeAnimationHide();
                                     fourAnimationHide();
                                     firstScreenAnimationHide();
+<<<<<<< HEAD
                                     fiveAnimationHide();
                                     sixAnimationHide();
+=======
+>>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
                                    $('#first').removeClass("expand");
                                    imageAnimationHide();
                         break;
@@ -398,15 +406,19 @@ $(document).ready(function() {
                                     threeAnimation();
                                     fourAnimationHide();
                                     firstScreenAnimationHide();
+<<<<<<< HEAD
                                     fiveAnimationHide();
                                     sixAnimationHide();
                                     imageAnimationHide();
 
+=======
+>>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
                         break;
                     case 'text-4': secondAnimationHide();
                                     threeAnimationHide();
                                     fourAnimation();
                                     firstScreenAnimationHide();
+<<<<<<< HEAD
                                     fiveAnimationHide();
                                     sixAnimationHide();
 
@@ -421,6 +433,8 @@ $(document).ready(function() {
                                     fiveAnimationHide();
                                     sixAnimation();
 
+=======
+>>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
                         break;
                 }
 
@@ -441,11 +455,15 @@ $(document).ready(function() {
 
             function carTransition() {
 
-                secondAnimationHide();
-                threeAnimationHide();
-                fourAnimationHide();
-                firstScreenAnimationHide();
+                $("#hotspot").remove();
+                
+                img0 = 'images/6.jpg';
+                
+                $("#car-transition img").attr('src',img0).fadeIn(1400);
 
+                img = 'images/7.jpg';
+
+<<<<<<< HEAD
                 sevenAnimationHide();
                 $("#hotspot").hide();
             
@@ -459,6 +477,21 @@ $(document).ready(function() {
                         $("#bigcar").attr('src','');
                     });
 
+=======
+                $("#car-transition img").delay(1200).fadeOut(1400, function() {
+                    $("#image-6").attr('src',img);
+                    
+                }).fadeIn(1400);
+
+                img1 = 'images/5.jpg';
+
+                $("#car-transition").append("<input type='button' id='hotspot' />");
+
+                $("#pop-up1").hide();
+                $("#pop-up2").hide();
+                $("#pop-up3").hide();
+                $("#pop-up4").hide();
+>>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
 
             }    
 
@@ -540,6 +573,7 @@ function fourAnimationHide(){
     $("#text4sub").hide();
 }
 
+<<<<<<< HEAD
 function fiveAnimationHide(){
    // $("#hotspot").remove();
     $("#image-6").hide();
@@ -573,6 +607,8 @@ function sevenAnimationHide(){
     $("#uploadSuccess").hide();
 }
 
+=======
+>>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
 
 function toggleMusic(){
 

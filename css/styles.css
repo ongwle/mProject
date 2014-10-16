@@ -5,8 +5,13 @@ body {
 	overflow-x: hidden !important;
 	background: #000;
 	color:#fff;
+<<<<<<< HEAD
 	font-family: 'MicrosoftYahei';
 	font-size: 12pt;
+=======
+	font-family: "Microsoft YaHei";
+	font-size: 18px;
+>>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
 }
 .text-black{
 	color:#000;
@@ -43,7 +48,11 @@ body {
 	transition: opacity ease 1s 2s;
 
 	position: absolute;
+<<<<<<< HEAD
 	top:3%;
+=======
+	top:26%;
+>>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
 	padding:5%;
 }
 
@@ -134,10 +143,10 @@ body {
 	left:0;
 	right:0;
 	bottom:0;
-	/*background:url(../images/landingBG.jpg) #000;*/ /* change if the mask should have another color then white */
-	/*background-size: 100% 100%;
+	background:url(../images/landingBG.jpg) #000; /* change if the mask should have another color then white */
+	background-size: 100% 100%;
 	background-position: top top;
-    background-repeat: no-repeat;*/
+    background-repeat: no-repeat;
 	z-index:999; /* makes sure it stays on top */
 }
 
@@ -153,7 +162,7 @@ body {
 #first{
 	/*margin-top: -10%;*/
 	position: absolute;
-	/*top: -2%;*/
+	top: -2%;
 }
 
 #firstPage, #image-2, #image-3, #image-4{
@@ -207,17 +216,17 @@ body {
 }
 
 @-webkit-keyframes cssAnimation {
-	from { -webkit-transform: scale(1.2) ; }
+	from { -webkit-transform: scale(1) ; }
 	to { -webkit-transform: scale(1.5); }
 }
 
 @-moz-keyframes cssAnimation {
-	from { -moz-transform: scale(1.2) ; }
+	from { -moz-transform: scale(1) ; }
 	to { -moz-transform: scale(1.5); }
 }
 
 @-o-keyframes cssAnimation {
-	from { -o-transform: scale(1.2); }
+	from { -o-transform: scale(1); }
 	to { -o-transform: scale(1.5); }
 }
 
@@ -448,10 +457,11 @@ body {
 	width: 100%;
 	height: 100%;
 	text-align: center;
-	font-size: 18pt;
+	font-size: 20px;
 	padding-top: 10%;
 }
 
+<<<<<<< HEAD
 #bigcar{
 	position: absolute;
 	z-index: 2;
@@ -532,6 +542,8 @@ body {
 	top:0;
 }
 
+=======
+>>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
 
 
 
