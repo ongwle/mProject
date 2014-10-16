@@ -1,10 +1,13 @@
 var height,width,bgMusic;
 
+var url = "http://180.169.22.67:6012/api/Registration";
+
 $(window).load(function() { // makes sure the whole site is loaded
     height = $(window).height();
     width = $(window).width();
 
     $('.arrow').css('top',(height-50)+'px');
+    $('.arrowText').css('top',(height-70)+'px');
 
     $('#status').fadeOut(); // will first fade out the loading animation
     $('#preloader').delay(500).fadeOut('slow'); // will fade out the white DIV that covers the website.
@@ -31,6 +34,7 @@ $(function(){
     }
 });
 
+
 $(window).on('resize', function(){
         if($(window).height() < $(window).width()){
             $("#horizontalDisplay").delay(500).css({'display':'block'});
@@ -42,6 +46,51 @@ $(window).on('resize', function(){
     });
             
 $(document).ready(function() {
+
+
+    $("#cityDDL").change(function() {
+        var cityName = $(this).val();
+        if($(this).val() == "其他"){
+            //show hidden field
+            $("#hiddenFieldCity").show();
+            $("#CityName").val('');
+        }else{
+            $("#hiddenFieldCity").hide();
+            $("#CityName").val(cityName);
+        }
+    }); 
+
+    $("form.ajax_form").submit(function(e){
+        e.preventDefault();
+        var postMSG = {
+                CityName: $("#CityName").val(),
+                Name: $("#Name").val(),
+                Gender: $("#Gender").val(),
+                IdentificationNo: $("#IdentificationNo").val(),
+                MobileNo: $("#MobileNo").val(),
+                EmailAddress: $("#EmailAddress").val()
+        };
+
+        $("#registerSubmitButton").hide();
+        $("#formloading").show();
+
+        // $.ajax({                    
+        //         url: url,
+        //         type: 'POST',
+        //         data: JSON.stringify(postMSG),
+        //         contentType: "application/json; charset=utf-8",
+        //         dataType: 'json',
+        //         crossDomain: true,
+        //         success:function(msg) {
+        //             if (msg && msg.Status === true) {
+        //                 $("#uploadSuccess").show();
+        //             } else {
+        //                 $("#registerSubmitButton").show();
+        //                 alert("Unable to register");
+        //             }
+        //         }
+        //     });
+    });
 
     height = $(window).height();
     width = $(window).width();
@@ -56,6 +105,7 @@ $(document).ready(function() {
     fourAnimationHide();
     firstScreenAnimationHide();
     fiveAnimationHide();
+    sixAnimationHide();
 
     $('#image-2').hide();
         $('#image-3').hide();
@@ -106,6 +156,10 @@ $(document).ready(function() {
         $("#image-3").height($("#firstPage").height());
         $("#image-4").height($("#firstPage").height());
         $("#car-transition").height($("#firstPage").height());
+        $("#pageSix").height($("#firstPage").height());
+        $("#finalPage").height($("#firstPage").height());
+        $("#uploadSuccess").height($("#firstPage").height());
+        $("#uploadSuccess").width($("#finalPage").width());
     
 
       
@@ -113,7 +167,7 @@ $(document).ready(function() {
             // var img = document.getElementById('image-1'); 
             var IMG_HEIGHT = height2,
             currentImg=0,
-            maxImages=9;
+            maxImages=7;
             speed=500,
             imgs = $("#imgs");
 
@@ -191,6 +245,8 @@ $(document).ready(function() {
                         break;
                     case 4: carTransition();
                         break; 
+                    case 5:displayText('sixPage');
+                        break;
                     default:
                        // alert('Nobody sucks!');
                         break;
@@ -205,12 +261,14 @@ $(document).ready(function() {
                                     fourAnimationHide();
                                    firstScreenAnimation();
                                    fiveAnimationHide();
+                                   sixAnimationHide();
                         break;
                     case 'text-2': secondAnimation();
                                     threeAnimationHide();
                                     fourAnimationHide();
                                     firstScreenAnimationHide();
                                     fiveAnimationHide();
+                                    sixAnimationHide();
                                    $('#first').removeClass("expand");
                         break;
                     case 'text-3': secondAnimationHide();
@@ -218,12 +276,22 @@ $(document).ready(function() {
                                     fourAnimationHide();
                                     firstScreenAnimationHide();
                                     fiveAnimationHide();
+                                    sixAnimationHide();
                         break;
                     case 'text-4': secondAnimationHide();
                                     threeAnimationHide();
                                     fourAnimation();
                                     firstScreenAnimationHide();
                                     fiveAnimationHide();
+                                    sixAnimationHide();
+                        break;
+
+                    case 'sixPage': secondAnimationHide();
+                                    threeAnimationHide();
+                                    fourAnimationHide();
+                                    firstScreenAnimationHide();
+                                    fiveAnimationHide();
+                                    sixAnimation();
                         break;
                 }
 
@@ -304,6 +372,14 @@ function fourAnimation(){
     $("#text4sub").delay(500).fadeIn(1500);
 }
 
+function sixAnimation(){
+    $("#sixHeader").fadeIn(1500);
+}
+
+function sevenAnimationHide(){
+    $("#uploadSuccess").fadeIn(1500);
+}
+
 
 
 
@@ -332,6 +408,14 @@ function fiveAnimationHide(){
     $("#hotspot").remove();
     $("#image-6").hide();
     $("#bigcar").hide();
+}
+
+function sixAnimationHide(){
+    $("#sixHeader").hide();
+}
+
+function sevenAnimationHide(){
+    $("#uploadSuccess").hide();
 }
 
 
