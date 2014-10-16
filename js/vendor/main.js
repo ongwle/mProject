@@ -1,13 +1,10 @@
 var height,width,bgMusic;
 
-var url = "http://180.169.22.67:6012/api/Registration";
-
 $(window).load(function() { // makes sure the whole site is loaded
     height = $(window).height();
     width = $(window).width();
 
     $('.arrow').css('top',(height-50)+'px');
-    $('.arrowText').css('top',(height-70)+'px');
 
     $('#status').fadeOut(); // will first fade out the loading animation
     $('#preloader').delay(500).fadeOut('slow'); // will fade out the white DIV that covers the website.
@@ -38,11 +35,11 @@ $(function(){
     $("#hotspot").bind("tap", triggerHotspotImage);
 
     function triggerHotspotImage(event){
-        $("#hotspot").fadeOut(1500);
-         $("#image-6").delay(3000).fadeOut(800, function(){
-            $("#image-6").attr('src','images/5.jpg').fadeIn(1000);
-            fifthAnimation();
-            sixthAnimation();
+        $("#hotspot").fadeOut(1000);
+         $("#image-6").delay(500).fadeOut(800, function(){
+            $("#image-6").attr('src','images/5.jpg').fadeIn(800);
+            carAnimation();
+            popupAnimation();
          });
          
     }
@@ -54,6 +51,7 @@ $(function(){
     function triggerImage1(event){
         $("#overlayBlackForCarTransition").show();
         $("#popupLg1").show();
+        $("#icon-close").show();
         
     }   
 
@@ -65,6 +63,7 @@ $(function(){
     function triggerImage2(event){
         $("#overlayBlackForCarTransition").show();
         $("#popupLg2").show();
+        $("#icon-close").show();
     }   
 
 });
@@ -75,6 +74,7 @@ $(function(){
     function triggerImage3(event){
         $("#overlayBlackForCarTransition").show();
         $("#popupLg3").show();
+        $("#icon-close").show();
     }   
 
 });
@@ -84,47 +84,62 @@ $(function(){
     function triggerImage4(event){
         $("#overlayBlackForCarTransition").show();
         $("#popupLg4").show();
+        $("#icon-close").show();
     }   
 
 });
 
 $(function(){
-    $("#popupLg1").delay(4000).bind("tap", triggerOffImage1);
-    function triggerOffImage1(event){
-        $("#popupLg1").fadeOut(1500);
-         $("#overlayBlackForCarTransition").fadeOut(1500);
-    }
-});
+    $("#icon-close").bind("tap", triggerImage4Off);
 
-$(function(){
-    $("#popupLg2").bind("tap", triggerOffImage2);
+    function triggerImage4Off(event){
+        $("#overlayBlackForCarTransition").hide();
+        $("#icon-close").hide();
+        $("#popupLg1").hide();
+        $("#popupLg2").hide();
+        $("#popupLg3").hide();
+        $("#popupLg4").hide();
+    }   
+
+});
+// $(function(){
+//     $("#popupLg1").delay(4000).bind("tap", triggerOffImage1);
+//     function triggerOffImage1(event){
+//         $("#popupLg1").fadeOut(1500);
+//          $("#overlayBlackForCarTransition").fadeOut(1500);
+//     }
+// });
+
+// $(function(){
+//     $("#popupLg2").bind("tap", triggerOffImage2);
      
-    function triggerOffImage2(event){
-        $("#popupLg2").fadeOut(1500);
-         $("#overlayBlackForCarTransition").fadeOut(1500);
-    }
+//     function triggerOffImage2(event){
+//         $("#popupLg2").fadeOut(1500);
+//          $("#overlayBlackForCarTransition").fadeOut(1500);
+//     }
 
-});
+// });
 
-$(function(){
-    $("#popupLg3").bind("tap", triggerOffImage3);
+// $(function(){
+//     $("#popupLg3").bind("tap", triggerOffImage3);
      
-    function triggerOffImage3(event){
-        $("#popupLg3").fadeOut(1500);
-         $("#overlayBlackForCarTransition").fadeOut(1500);
-    }
+//     function triggerOffImage3(event){
+//         $("#popupLg3").fadeOut(1500);
+//          $("#overlayBlackForCarTransition").fadeOut(1500);
+//     }
 
-});
+// });
 
-$(function(){
-    $("#popupLg4").bind("tap", triggerOffImage4);
+// $(function(){
+//     $("#popupLg4").bind("tap", triggerOffImage4);
      
-    function triggerOffImage4(event){
-        $("#popupLg4").fadeOut(1500);
-         $("#overlayBlackForCarTransition").fadeOut(1500);
-    }
+//     function triggerOffImage4(event){
+//         $("#popupLg4").fadeOut(1500);
+//          $("#overlayBlackForCarTransition").fadeOut(1500);
+//     }
 
-});
+// });
+
 
 
 $(window).on('resize', function(){
@@ -139,51 +154,6 @@ $(window).on('resize', function(){
             
 $(document).ready(function() {
 
-
-    $("#cityDDL").change(function() {
-        var cityName = $(this).val();
-        if($(this).val() == "其他"){
-            //show hidden field
-            $("#hiddenFieldCity").show();
-            $("#CityName").val('');
-        }else{
-            $("#hiddenFieldCity").hide();
-            $("#CityName").val(cityName);
-        }
-    }); 
-
-    $("form.ajax_form").submit(function(e){
-        e.preventDefault();
-        var postMSG = {
-                CityName: $("#CityName").val(),
-                Name: $("#Name").val(),
-                Gender: $("#Gender").val(),
-                IdentificationNo: $("#IdentificationNo").val(),
-                MobileNo: $("#MobileNo").val(),
-                EmailAddress: $("#EmailAddress").val()
-        };
-
-        $("#registerSubmitButton").hide();
-        $("#formloading").show();
-
-        // $.ajax({                    
-        //         url: url,
-        //         type: 'POST',
-        //         data: JSON.stringify(postMSG),
-        //         contentType: "application/json; charset=utf-8",
-        //         dataType: 'json',
-        //         crossDomain: true,
-        //         success:function(msg) {
-        //             if (msg && msg.Status === true) {
-        //                 $("#uploadSuccess").show();
-        //             } else {
-        //                 $("#registerSubmitButton").show();
-        //                 alert("Unable to register");
-        //             }
-        //         }
-        //     });
-    });
-
     height = $(window).height();
     width = $(window).width();
 
@@ -196,12 +166,9 @@ $(document).ready(function() {
     threeAnimationHide();
     fourAnimationHide();
     firstScreenAnimationHide();
-<<<<<<< HEAD
     fiveAnimationHide();
-    sixAnimationHide();
-
+    carAnimationHide();
     imageAnimationHide();
-
 
     $('#image-2').hide();
     $('#image-3').hide();
@@ -212,8 +179,6 @@ $(document).ready(function() {
     $("#popup2").hide();
     $("#popup3").hide();
     $("#popup4").hide();
-=======
->>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
 
     var thumbprint = $(".pointer");
 
@@ -247,9 +212,17 @@ $(document).ready(function() {
          $('#signin').delay(600).css({'display':'none'});
         //start expanding bg
 
-         $('#firstPage').delay(600).css({'display':'block', 'opacity':'1'});
+        $('#firstPage').delay(600).css({'display':'block', 'opacity':'1'});
         firstScreenAnimation();
+
+        $('#image-2').show();
+        $('#image-3').show();
+        $('#image-4').show();
+        $('#car-transition').show();
     });
+
+
+
 
     bgMusic = document.getElementById("song");
     bgMusic.play();
@@ -259,27 +232,10 @@ $(document).ready(function() {
         var height2 = $(this).height();
         var width2 = $(this).width();
 
-        // console.log($("#firstPage").height());
-        // console.log($("#image-2").height());
-        // console.log($("#image-3").height());
-        // console.log($("#image-4").height());
-        // console.log($("#car-transition").height());
-        // console.log($("#pageSix").height());
-        // console.log($("#finalPage").height());
-        // console.log($("#uploadSuccess").height());
-
         $("#image-2").height($("#firstPage").height());
         $("#image-3").height($("#firstPage").height());
         $("#image-4").height($("#firstPage").height());
-<<<<<<< HEAD
         $("#car-transition").height($("#firstPage").height());
-        $("#pageSix").height($("#firstPage").height());
-        $("#finalPage").height($("#firstPage").height());
-        $("#uploadSuccess").height($("#firstPage").height());
-        $("#uploadSuccess").width($("#finalPage").width());
-=======
-        $("#i#car-transition").height($("#firstPage").height());
->>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
     
 
       
@@ -287,7 +243,7 @@ $(document).ready(function() {
             // var img = document.getElementById('image-1'); 
             var IMG_HEIGHT = height2,
             currentImg=0,
-            maxImages=7;
+            maxImages=9;
             speed=500,
             imgs = $("#imgs");
 
@@ -341,6 +297,8 @@ $(document).ready(function() {
             {
                 currentImg = Math.max(currentImg-1, 0);
                 scrollImages( IMG_HEIGHT * currentImg, speed);
+                console.log("1 " +IMG_HEIGHT);
+                console.log("2 "+currentImg);
 
             }
 
@@ -348,9 +306,6 @@ $(document).ready(function() {
             {
                 currentImg = Math.min(currentImg+1, maxImages-1);
                 scrollImages( IMG_HEIGHT * currentImg, speed);
-
-                console.log("3 " +IMG_HEIGHT);
-                console.log("4 "+currentImg);
 
             }
 
@@ -366,8 +321,6 @@ $(document).ready(function() {
                         break;
                     case 4: carTransition();
                         break; 
-                    case 5:displayText('sixPage');
-                        break;
                     default:
                        // alert('Nobody sucks!');
                         break;
@@ -381,24 +334,16 @@ $(document).ready(function() {
                                     threeAnimationHide();
                                     fourAnimationHide();
                                    firstScreenAnimation();
-<<<<<<< HEAD
                                    fiveAnimationHide();
-                                   sixAnimationHide();
-
+                                   carAnimationHide();
                                    imageAnimationHide();
-
-=======
->>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
                         break;
                     case 'text-2': secondAnimation();
                                     threeAnimationHide();
                                     fourAnimationHide();
                                     firstScreenAnimationHide();
-<<<<<<< HEAD
                                     fiveAnimationHide();
-                                    sixAnimationHide();
-=======
->>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
+                                    carAnimationHide();
                                    $('#first').removeClass("expand");
                                    imageAnimationHide();
                         break;
@@ -406,35 +351,17 @@ $(document).ready(function() {
                                     threeAnimation();
                                     fourAnimationHide();
                                     firstScreenAnimationHide();
-<<<<<<< HEAD
                                     fiveAnimationHide();
-                                    sixAnimationHide();
+                                    carAnimationHide();
                                     imageAnimationHide();
-
-=======
->>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
                         break;
                     case 'text-4': secondAnimationHide();
                                     threeAnimationHide();
                                     fourAnimation();
                                     firstScreenAnimationHide();
-<<<<<<< HEAD
                                     fiveAnimationHide();
-                                    sixAnimationHide();
-
+                                    carAnimationHide();
                                     imageAnimationHide();
-
-                        break;
-
-                    case 'sixPage': secondAnimationHide();
-                                    threeAnimationHide();
-                                    fourAnimationHide();
-                                    firstScreenAnimationHide();
-                                    fiveAnimationHide();
-                                    sixAnimation();
-
-=======
->>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
                         break;
                 }
 
@@ -455,43 +382,31 @@ $(document).ready(function() {
 
             function carTransition() {
 
-                $("#hotspot").remove();
-                
-                img0 = 'images/6.jpg';
-                
-                $("#car-transition img").attr('src',img0).fadeIn(1400);
+                secondAnimationHide();
+                threeAnimationHide();
+                fourAnimationHide();
+                firstScreenAnimationHide();
+                fiveAnimationHide();
+                carAnimationHide();
+                imageAnimationHide();
 
-                img = 'images/7.jpg';
-
-<<<<<<< HEAD
-                sevenAnimationHide();
+                popupAnimationHide();
                 $("#hotspot").hide();
-            
+                
+                $("#image-6").attr('src','images/7.jpg');
+
                 $("#bigcar").attr('src','images/bigCar.jpg').addClass("expand2").fadeIn(1500);
 
-                $("#image-6").delay(3000).fadeIn(1500, function(){
-                    $("#hotspot").delay(2000).fadeIn(1500);
-                });
+               
                 $("#bigcar").delay(2800).fadeOut(1500, function() {
                         $('#bigcar').removeClass("expand2");
                         $("#bigcar").attr('src','');
                     });
 
-=======
-                $("#car-transition img").delay(1200).fadeOut(1400, function() {
-                    $("#image-6").attr('src',img);
-                    
-                }).fadeIn(1400);
+                 $("#image-6").delay(3000).fadeIn(1500, function(){
+                    $("#hotspot").delay(2000).fadeIn(1500);
+                });
 
-                img1 = 'images/5.jpg';
-
-                $("#car-transition").append("<input type='button' id='hotspot' />");
-
-                $("#pop-up1").hide();
-                $("#pop-up2").hide();
-                $("#pop-up3").hide();
-                $("#pop-up4").hide();
->>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
 
             }    
 
@@ -529,27 +444,17 @@ function fourAnimation(){
     $("#text4sub").delay(500).fadeIn(1500);
 }
 
-
-function fifthAnimation(){
-    $("#text5").delay(500).fadeIn(1500);
-    $("#text5sub").delay(1000).fadeIn(1500);
-    $("#gallery").delay(1500).fadeIn(1500);
+function carAnimation(){
+    $("#text5").delay(1500).fadeIn(1500);
+    $("#text5sub").delay(2000).fadeIn(1500);
+    $("#gallery").delay(2500).fadeIn(1500);
 }
 
-function sixAnimation(){
-    $("#sixHeader").fadeIn(1500);
-}
-
-function sevenAnimationHide(){
-    $("#uploadSuccess").fadeIn(1500);
-}
-
-
-function sixthAnimation(){
-    $("#popup1").delay(500).fadeIn(1000);
-    $("#popup2").delay(1000).fadeIn(1000);
-    $("#popup3").delay(1500).fadeIn(1000);
-    $("#popup4").delay(2000).fadeIn(1000);
+function popupAnimation(){
+    $("#popup1").delay(3000).fadeIn(1000);
+    $("#popup2").delay(3500).fadeIn(1000);
+    $("#popup3").delay(4000).fadeIn(1000);
+    $("#popup4").delay(4500).fadeIn(1000);
 }
 
 
@@ -573,22 +478,21 @@ function fourAnimationHide(){
     $("#text4sub").hide();
 }
 
-<<<<<<< HEAD
 function fiveAnimationHide(){
    // $("#hotspot").remove();
     $("#image-6").hide();
     $("#bigcar").hide();
 }
 
-function sixAnimationHide(){
-
+function carAnimationHide(){
     $("#text5").hide();
     $("#text5sub").hide();
     $("#gallery").hide();
     $("#overlayBlackForCarTransition").hide();
+    $("#icon-close").hide();
 }
 
-function sevenAnimationHide(){
+function popupAnimationHide(){
     $("#popup1").hide();
     $("#popup2").hide();
     $("#popup3").hide();
@@ -600,15 +504,7 @@ function imageAnimationHide(){
     $("#popupLg2").hide();
     $("#popupLg3").hide();
     $("#popupLg4").hide();
-    $("#sixHeader").hide();
 }
-
-function sevenAnimationHide(){
-    $("#uploadSuccess").hide();
-}
-
-=======
->>>>>>> parent of cd25a65... Merge branch 'master' of github.com:ongwle/mProject
 
 function toggleMusic(){
 
