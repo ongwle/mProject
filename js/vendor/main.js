@@ -31,6 +31,98 @@ $(function(){
     }
 });
 
+$(function(){
+    $("#hotspot").bind("tap", triggerHotspotImage);
+
+    function triggerHotspotImage(event){
+        $("#hotspot").fadeOut(1500);
+         $("#image-6").delay(3000).fadeOut(800, function(){
+            $("#image-6").attr('src','images/5.jpg').fadeIn(1000);
+            fifthAnimation();
+            sixthAnimation();
+         });
+         
+    }
+});
+
+$(function(){
+    $("#popup1").bind("tap", triggerImage1);
+
+    function triggerImage1(event){
+        $("#overlayBlackForCarTransition").show();
+        $("#popupLg1").show();
+        
+    }   
+
+});
+
+$(function(){
+    $("#popup2").bind("tap", triggerImage2);
+
+    function triggerImage2(event){
+        $("#overlayBlackForCarTransition").show();
+        $("#popupLg2").show();
+    }   
+
+});
+
+$(function(){
+    $("#popup3").bind("tap", triggerImage3);
+
+    function triggerImage3(event){
+        $("#overlayBlackForCarTransition").show();
+        $("#popupLg3").show();
+    }   
+
+});
+$(function(){
+    $("#popup4").bind("tap", triggerImage4);
+
+    function triggerImage4(event){
+        $("#overlayBlackForCarTransition").show();
+        $("#popupLg4").show();
+    }   
+
+});
+
+$(function(){
+    $("#popupLg1").delay(4000).bind("tap", triggerOffImage1);
+    function triggerOffImage1(event){
+        $("#popupLg1").fadeOut(1500);
+         $("#overlayBlackForCarTransition").fadeOut(1500);
+    }
+});
+
+$(function(){
+    $("#popupLg2").bind("tap", triggerOffImage2);
+     
+    function triggerOffImage2(event){
+        $("#popupLg2").fadeOut(1500);
+         $("#overlayBlackForCarTransition").fadeOut(1500);
+    }
+
+});
+
+$(function(){
+    $("#popupLg3").bind("tap", triggerOffImage3);
+     
+    function triggerOffImage3(event){
+        $("#popupLg3").fadeOut(1500);
+         $("#overlayBlackForCarTransition").fadeOut(1500);
+    }
+
+});
+
+$(function(){
+    $("#popupLg4").bind("tap", triggerOffImage4);
+     
+    function triggerOffImage4(event){
+        $("#popupLg4").fadeOut(1500);
+         $("#overlayBlackForCarTransition").fadeOut(1500);
+    }
+
+});
+
 $(window).on('resize', function(){
         if($(window).height() < $(window).width()){
             $("#horizontalDisplay").delay(500).css({'display':'block'});
@@ -56,11 +148,18 @@ $(document).ready(function() {
     fourAnimationHide();
     firstScreenAnimationHide();
     fiveAnimationHide();
+    sixAnimationHide();
+    imageAnimationHide();
 
     $('#image-2').hide();
-        $('#image-3').hide();
-        $('#image-4').hide();
-        $('#car-transition').hide();
+    $('#image-3').hide();
+    $('#image-4').hide();
+    $('#car-transition').hide();
+
+    $("#popup1").hide();
+    $("#popup2").hide();
+    $("#popup3").hide();
+    $("#popup4").hide();
 
     var thumbprint = $(".pointer");
 
@@ -74,6 +173,18 @@ $(document).ready(function() {
         threshold: 10,
         time: 350
     }));
+
+    // var button3 = document.getElementById("hotspot");
+    // console.log(button3);
+    // // alert(button3);
+    // var button4 = new Hammer(button3);
+
+    // button4.add(new Hammer.Press({
+    //     event: 'press',
+    //     pointer: 1,
+    //     threshold: 10,
+    //     time: 350
+    // }));
 
     button.on('press', function(event) {
         
@@ -205,25 +316,33 @@ $(document).ready(function() {
                                     fourAnimationHide();
                                    firstScreenAnimation();
                                    fiveAnimationHide();
+                                   sixAnimationHide();
+                                   imageAnimationHide();
                         break;
                     case 'text-2': secondAnimation();
                                     threeAnimationHide();
                                     fourAnimationHide();
                                     firstScreenAnimationHide();
                                     fiveAnimationHide();
+                                    sixAnimationHide();
                                    $('#first').removeClass("expand");
+                                   imageAnimationHide();
                         break;
                     case 'text-3': secondAnimationHide();
                                     threeAnimation();
                                     fourAnimationHide();
                                     firstScreenAnimationHide();
                                     fiveAnimationHide();
+                                    sixAnimationHide();
+                                    imageAnimationHide();
                         break;
                     case 'text-4': secondAnimationHide();
                                     threeAnimationHide();
                                     fourAnimation();
                                     firstScreenAnimationHide();
                                     fiveAnimationHide();
+                                    sixAnimationHide();
+                                    imageAnimationHide();
                         break;
                 }
 
@@ -249,33 +368,28 @@ $(document).ready(function() {
                 fourAnimationHide();
                 firstScreenAnimationHide();
 
+                sevenAnimationHide();
+                $("#hotspot").hide();
             
                 $("#bigcar").attr('src','images/bigCar.jpg').addClass("expand2").fadeIn(1500);
 
                 $("#image-6").delay(3000).fadeIn(1500, function(){
-                    $("#car-transition").delay(8000).append("<input type='button' id='hotspot' />");
+                    $("#hotspot").delay(2000).fadeIn(1500);
                 });
                 $("#bigcar").delay(2800).fadeOut(1500, function() {
                         $('#bigcar').removeClass("expand2");
                         $("#bigcar").attr('src','');
                     });
 
-                
-                
-
-                $("#pop-up1").hide();
-                $("#pop-up2").hide();
-                $("#pop-up3").hide();
-                $("#pop-up4").hide();
 
             }    
 
-            $("#button").click(function(){
-                $("#pop-up1").delay(1000).fadeIn(1000);
-                $("#pop-up2").delay(1500).fadeIn(1000);
-                $("#pop-up3").delay(2000).fadeIn(1000);
-                $("#pop-up4").delay(2500).fadeIn(1000);
-            });
+            // $("#button").click(function(){
+            //     $("#pop-up1").delay(1000).fadeIn(1000);
+            //     $("#pop-up2").delay(1500).fadeIn(1000);
+            //     $("#pop-up3").delay(2000).fadeIn(1000);
+            //     $("#pop-up4").delay(2500).fadeIn(1000);
+            // });
 
             //////////////////////////////////////////////////////////////////////////////////////////////
         });
@@ -304,8 +418,18 @@ function fourAnimation(){
     $("#text4sub").delay(500).fadeIn(1500);
 }
 
+function fifthAnimation(){
+    $("#text5").delay(500).fadeIn(1500);
+    $("#text5sub").delay(1000).fadeIn(1500);
+    $("#gallery").delay(1500).fadeIn(1500);
+}
 
-
+function sixthAnimation(){
+    $("#popup1").delay(500).fadeIn(1000);
+    $("#popup2").delay(1000).fadeIn(1000);
+    $("#popup3").delay(1500).fadeIn(1000);
+    $("#popup4").delay(2000).fadeIn(1000);
+}
 
 
 function firstScreenAnimationHide(){
@@ -329,11 +453,31 @@ function fourAnimationHide(){
 }
 
 function fiveAnimationHide(){
-    $("#hotspot").remove();
+   // $("#hotspot").remove();
     $("#image-6").hide();
     $("#bigcar").hide();
 }
 
+function sixAnimationHide(){
+    $("#text5").hide();
+    $("#text5sub").hide();
+    $("#gallery").hide();
+    $("#overlayBlackForCarTransition").hide();
+}
+
+function sevenAnimationHide(){
+    $("#popup1").hide();
+    $("#popup2").hide();
+    $("#popup3").hide();
+    $("#popup4").hide();
+}
+
+function imageAnimationHide(){
+    $("#popupLg1").hide();
+    $("#popupLg2").hide();
+    $("#popupLg3").hide();
+    $("#popupLg4").hide();
+}
 
 function toggleMusic(){
 

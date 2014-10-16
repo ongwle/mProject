@@ -12,40 +12,72 @@
     top:47%;
 }
 
-input#pop-up1    {
-	background:url(../images/popup1.jpg);
-	background-repeat: no-repeat;
-	width:40px;
-	height:40px;
-	border: 0;
-	position: absolute;
-}
-input#pop-up2    {
-	background:url(../images/popup2.jpg);
-	background-repeat: no-repeat;
-	width:40px;
-	height:40px;
-	border: 0;
-	position: absolute;
-}
-input#pop-up3    {
-	background:url(../images/popup3.jpg);
-	background-repeat: no-repeat;
-	width:40px;
-	height:40px;
-	border: 0;
-	position: absolute;
-}
-input#pop-up4    {
-	background:url(../images/popup4.jpg);
-	background-repeat: no-repeat;
-	width:40px;
-	height:40px;
-	border: 0;
-	position: absolute;
+#gallery {
+
 }
 
-.enlarge:visited {
-	transform:scale(2,2);
-	transform-origin:0 0;
+#popup1 {
+/*	background:url(../images/popup1.jpg);
+	background-repeat: no-repeat;
+	width:40px;
+	height:40px;
+	border: 0;*/
+	/*position: absolute;*/
+	z-index: 1000;
+}
+#popup2 {
+/*	background:url(../images/popup2.jpg);
+	background-repeat: no-repeat;
+	width:40px;
+	height:40px;
+	border: 0;*/
+	/*position: absolute;*/
+	z-index: 1000;
+}
+#popup3 {
+/*	background:url(../images/popup3.jpg);
+	background-repeat: no-repeat;
+	width:40px;
+	height:40px;
+	border: 0;*/
+	/*position: absolute;*/
+	z-index: 1000;
+}
+#popup4 {
+/*	background:url(../images/popup4.jpg);
+	background-repeat: no-repeat;
+	width:40px;
+	height:40px;
+	border: 0;*/
+	/*position: absolute;*/
+	z-index: 1000;
+}
+
+#popupLg1 {
+	position: absolute;
+	z-index: 5001;
+	top: 30%;
+	width: 100%;
+}
+
+
+#popupLg2 {
+	position: absolute;
+	z-index: 5001;
+	top: 30%;
+	width: 100%;
+}
+
+#popupLg3 {
+	position: absolute;
+	z-index: 5001;
+	top: 30%;
+	width: 100%;
+}
+
+#popupLg4 {
+	position: absolute;
+	z-index: 5001;
+	top: 30%;
+	width: 100%;
 }
