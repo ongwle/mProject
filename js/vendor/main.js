@@ -89,9 +89,6 @@ $(document).ready(function() {
         $('#car-transition').show();
     });
 
-
-
-
     bgMusic = document.getElementById("song");
    // bgMusic.play();
 
@@ -242,6 +239,12 @@ $(document).ready(function() {
 
             function carTransition() {
 
+                $("#pop-up1").hide();
+                $("#pop-up2").hide();
+                $("#pop-up3").hide();
+                $("#pop-up4").hide();
+                $("#hotspot").hide();
+
                 secondAnimationHide();
                 threeAnimationHide();
                 fourAnimationHide();
@@ -251,29 +254,39 @@ $(document).ready(function() {
                 $("#bigcar").attr('src','images/bigCar.jpg').addClass("expand2").fadeIn(1500);
 
                 $("#image-6").delay(3000).fadeIn(1500, function(){
-                    $("#car-transition").append("<input type='button' id='hotspot' />");
+                    // $("#car-transition").append('<div id="hotspot"></div>');
+                   $("#hotspot").show();
                 });
                 $("#bigcar").delay(2800).fadeOut(1500, function() {
                         $('#bigcar').removeClass("expand2");
                         $("#bigcar").attr('src','');
                     });
 
-                
-                
+                // var button3 = document.getElementById("hotspot");
+                // var button4 = new Hammer(button3);
+                // button4.add(new Hammer.Press({
+                //     event: 'press',
+                //     pointer: 1,
+                //     threshold: 5,
+                //     time: 100
+                // }));
+            }
 
-                $("#pop-up1").hide();
-                $("#pop-up2").hide();
-                $("#pop-up3").hide();
-                $("#pop-up4").hide();
+            function buttonPressOnDoor(){    
+            // InteriorCar();
+                alert("working");
+                $("#image-6").delay(800).fadeOut(1500, function() {
+                    $("#image-6").attr('src','images/5.jpg');
+                });
+            }
+ 
+            function InteriorCar(){
 
-            }    
-
-            $("#button").click(function(){
                 $("#pop-up1").delay(1000).fadeIn(1000);
                 $("#pop-up2").delay(1500).fadeIn(1000);
                 $("#pop-up3").delay(2000).fadeIn(1000);
                 $("#pop-up4").delay(2500).fadeIn(1000);
-            });
+            }
 
             //////////////////////////////////////////////////////////////////////////////////////////////
         });
