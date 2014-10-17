@@ -1,269 +1,276 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-		<title>Mercedes Benz</title>
-		<link rel="stylesheet" href="css/bootstrap.min.css" />
-		<link rel="stylesheet" href="css/image.css" />
-		
-		<link rel="stylesheet" href="css/stylesheet.css?p=101"/>
-		<link rel="stylesheet" href="css/button.css" />
-		<link rel="stylesheet" href="css/font-awesome.css"/>
-		<link rel="stylesheet" href="css/styles.css?p=101"/>
-		<link rel="stylesheet" href="css/hotspot.css?p=101"/>
-		
-		<script src="js/bootstrap/jquery-2.1.1.min.js"></script>
-		<script src="js/vendor/jquery.mobile-1.4.4.min.js"></script>
-		<script src="js/bootstrap/bootstrap.min.js"></script>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Mercedes Benz</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/image.css" />
+
+	<link rel="stylesheet" href="css/stylesheet.css?p=101"/>
+	<link rel="stylesheet" href="css/button.css" />
+	<link rel="stylesheet" href="css/font-awesome.css"/>
+	<link rel="stylesheet" href="css/styles.css?p=101"/>
+	<link rel="stylesheet" href="css/hotspot.css?p=101"/>
+
+
+	<script src="js/bootstrap/jquery-2.1.1.min.js"></script>
+	<script src="js/vendor/jquery.mobile-1.4.4.min.js"></script>
+	<script src="js/bootstrap/bootstrap.min.js"></script>
 
 	
-		<script src="js/vendor/hammer.js"></script>
-	    
-		<script src="js/vendor/modernizr.js"></script>
-		<script src="js/vendor/jquery.touchSwipe.js"></script>
-		<script src="js/vendor/main.js"></script>
+	<script src="js/vendor/hammer.js"></script>
 
-	</head>
+	<script src="js/vendor/modernizr.js"></script>
+	<script src="js/vendor/jquery.touchSwipe.js"></script>
+	<script src="js/vendor/main.js"></script>
 
-	<body>
+</head>
 
-		<audio controls="controls" autoplay loop preload="auto" id="song" style="display:none;">
-	        <source src="images/Freeflight.mp3" type="audio/mp3" />
-	    </audio>
-	    <a id="musicPlayer" class="music-btn" onclick="toggleMusic()"></a>
-	    
+<body>
 
-		<section id="preloader">
-			<div id="overlayBlack"></div>
-			<div id="status">&nbsp;</div>
-		</section>
+	<audio controls="controls" autoplay loop preload="auto" id="song" style="display:none;">
+		<source src="images/Freeflight.mp3" type="audio/mp3" />
+	</audio>
+	<a id="musicPlayer" class="music-btn" onclick="toggleMusic()"></a>
 
-		<section id="horizontalDisplay" style="display:none;">
-			<div class="horizontal">
-				<span>请翻转手机竖屏浏览</span>
+	<section id="preloader">
+		<div id="overlayBlack"></div>
+		<div id="status">&nbsp;</div>
+	</section>
+
+	<section id="horizontalDisplay" style="display:none;">
+		<div class="horizontal">
+			<span>请翻转手机竖屏浏览</span>
+		</div>
+	</section>
+
+	<section id="signin" style="display:none;">
+		<div id="overlayBlack"></div>
+		<div id="intro-bg" class="intro-bg">
+
+			<span class="font">开启你的领袖风范</span>
+			<div id="fingerPrint" class="pointer">
+
+				<div class="pointer" ng-click="pressing()" pj-finger="" style="touch-action: pan-y; -webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+
+					<div class="cursor c1"></div>
+					<div class="cursor c2"></div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div id="imgs" style="-webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(0px, 0px, 0px); position:fixed;">
+
+		<section id="firstPage" style="">
+			<div class="first-page" class="divPosition">
+
+				<img id="first" class="img-responsive" src="images/landingBG.jpg" />
+				<img id="image-1" class="img-responsive" src="images/1.jpg" />
+				<img id ='logo' src="images/logo.png"/>
+				<div class="text-black firstPageText">
+					<h1 id="firstHeader" >定义领袖风范</h1>
+					<p id="firstSub" class="subText">全新梅赛德斯-奔驰S 320 L</p>
+				</div>
+				<div id="firstArrow" class="arrow arrowDown animationBounce"></div>
 			</div>
 		</section>
 
-		<section id="signin" style="display:none;">
-			<div id="overlayBlack"></div>
-		    <div id="intro-bg" class="intro-bg">
+		<section id="image-2" class="divPosition">
+			<img id="image-2" class="img-responsive" src="images/2.jpg"></img>
+			<div class="text-black secondPageText">
+				<p id="text2" class="text-2 headerText">超越 对手十年之后</p>
+				<p id="text2sub" class="text-2 subText">谁内心充满坚持，谁就能尽晓在挑战中超越以往的真义。对你而言，这挑战就是让人生在每一处都有更出色的表现。</p>
+			</div>
+			<div id="secondArrow" class="arrow2 arrowDown animationBounce"><!-- <img class="arrowSize" src="images/arrow.gif"/> --></div>
 
-		        <span class="font">开启你的领袖风范</span>
-		        <div id="fingerPrint" class="pointer">
-
-		        <div class="pointer" ng-click="pressing()" pj-finger="" style="touch-action: pan-y; -webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-
-		            <div class="cursor c1"></div>
-		            <div class="cursor c2"></div>
-		           <!--  <div class="arrow arrowSignIn animationBounce"></div>	 -->	        
-		        </div>
-		    </div>
 		</section>
 
-		<div id="imgs" style="-webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(0px, 0px, 0px);">
 
-		    	<section id="firstPage" style="">
-					<div class="first-page" class="divPosition">
-
-						<img id="first" class="img-responsive" src="images/landingBG.jpg">
-						<img id="image-1" class="img-responsive" src="images/1.jpg">
-						<img id ='logo' src="images/logo.png"/>
-						<div class="text-black firstPageText">
-							<h1 id="firstHeader" >定义领袖风范</h1>
-							<p id="firstSub" class="subText">全新梅赛德斯-奔驰S 320 L</p>
-						</div>
-						<div id="firstArrow" class="arrow arrowDown animationBounce"><!-- <img class="arrowSize" src="images/arrow.gif"/> --></div>
-					</div>
-				</section>
-
-			    <section id="image-2" class="divPosition">
-			  	  <img id="image-2" class="img-responsive" src="images/2.jpg">
-			  	  <div class="text-black secondPageText">
-			  	  	<p id="text2" class="text-2 headerText">超越 对手十年之后</p>
-			  	  	<p id="text2sub" class="text-2 subText">谁内心充满坚持，谁就能尽晓在挑战中超越以往的真义。对你而言，这挑战就是让人生在每一处都有更出色的表现。</p>
-			  	  </div>
-			  	  <div id="secondArrow" class="arrow2 arrowDown animationBounce"><!-- <img class="arrowSize" src="images/arrow.gif"/> --></div>
-			  	  </img>
-			  	</section>
-
-			  	
-			  	<section id="image-3" class="divPosition" style="background-color:#000">
-			      <img id="image" class="img-responsive" src="images/3.jpg">
-			      	<div class="thirdPageText">
-			        	<p id="text3" class="text-3 headerText">刷新 人生巅峰之后.</p>
-			        	<p id="text3sub" class="text-3 subText">至高地位在每一次成功后被刷新。与其说这是一场为自己而造的未来，不如说是一件因您而生的奇迹。</p>
-			      	</div>
-			      	<div id="thirdArrow" class="arrow arrowDown animationBounce"><!-- <img class="arrowSize"src="images/arrow.gif"/> --></div>
-			      </img>
-
-			    </section>
-
-			    <section id="image-4" class="divPosition"  style="background-color:#000">
-			      <img class="img-responsive" src="images/4.jpg">
-			      <div class="fourthPageText">
-			      	<p id="text4" class="text-4 headerText">梅赛德斯-奔驰S320L<br/>为人生赢家开启领袖之门</p>	      
-			      	<p id="text4sub" class="text-4 subText">各路精英分享人生，坐享领袖独家特权，<br/>挑战4条城市线路，亲身驾驭体验非凡。</p>
-			      </div>
-			      </img>
-			      <div id="fourthArrow" class="arrow arrowDown animationBounce"><!-- <img class="arrowSize" src="images/arrow.gif"/> --></div>
-			    </section>
-
-			    <section id="image-5" class="divPosition"  style="background-color:#000">
-			     	<img id="bigcar2" class="img-responsive" src="images/bigCar.jpg"/>
-			     	<div id="fiveArrow" class="arrow arrowText  arrowDown animationBounce " style ="width:100%; margin-top:-45px;"></div>
-			    	<div id="fiveArrow" class="arrow center-block text-center" style ="left:0; margin-left:0; width:100%; margin-top:-45px; background-image:none;"><img style="display:none" class="arrowSize" src="images/arrow.gif"/><br/><p class="tinyText text-center" style="color:#fff;">向上滑动<br/>了解梅赛德斯-奔驰S320L</p></div>
-			    </section>
-
-
-			    <section id="car-transition"  style="position:relative">
-
-			    	 <div id="overlayBlackForCarTransition"></div>
-			    	 <img id="image-6" class="img-responsive" src="images/7.jpg"/>
-			    	 <img id="bigcar" class="img-responsive" src="images/bigCar.jpg"/>
-
-			    	 <!-- <div id="carArrow" class="arrow arrowText  arrowDown animationBounce " style ="width:100%; margin-top:-45px;"></div> -->
-
-			    	 <div id="carArrow2" class="arrow center-block text-center" style ="left:0; margin-left:0; width:100%; margin-top:-45px; background-image:none;">
-			    	 <img style="display:none" class="arrowSize" src="images/arrow.png"/><br/>
-			    	 <p class="tinyText text-center" style="color:#fff;">点击查看领袖座驾</p>
-			    	 </div>
-			    	<!--  
-			    	<p id="text6sub" class="text-6 arrow animationBounce" style="width:auto; opacity:1; color:#fff"></p>
-				    <p id="text6sub" class="text-6 arrow animationBounce" tyle ="left:0; margin-left:0; width:100%; background-image:none;"></p>
-	 -->
-
-			    	 <div id="hotspot">
-			    	 	<div class='s'></div>
-			    	 </div>
-
-			    	 <div class="fifthPageText">
-				      	<p id="text5" class="text-5 headerText">S320 L定义领袖风范</p>	      
-				      	<p id="text5sub" class="text-5">全新梅赛德斯-奔驰S 320 L 尊贵型 领时代之先</p>
-				     </div>
-
-					 <!-- <div id="overlayBlack"></div> -->
-
-				     <div class="row" id="gallery" >
-				     	<div class="col-xs-6 col-md-6 col-lg-6" style="position: absolute;top: 55%;left: 3%;">
-				     		
-				     		 <img id="popup1" class="img-responsive" src="images/popup1small.png" style="padding-bottom: 10px;"/>
-				     		 <img id="popup2" class="img-responsive" src="images/popup2small.png" />
-
-
-				     	</div>
-				     	<div class="col-xs-6  col-md-6 col-lg-6" style="position: absolute;top: 50%;left: 49%;">
-						     <img id="popup3" class="img-responsive" src="images/popup3small.png" style="padding-bottom: 10px;"/>
-				     		 <img id="popup4" class="img-responsive" src="images/popup4small.png" />
-				     	</div>
-					</div>
-
-					<i id="icon-close" style="font-family:'entypo'; font-size: 34pt; font-style:normal; ">&#10060;</i>
-					<img id="popupLg1" src="images/popup1.jpg" />
-					<img id="popupLg2" class="img-responsive" src="images/popup2.jpg" />
-					<img id="popupLg3" class="img-responsive" src="images/popup3.jpg" />
-					<img id="popupLg4" class="img-responsive" src="images/popup4.jpg" />
-			    </section>
-
-			    <section id="pageSix" class="divPosition">
-			    	<div class="sixPageText center-block">
-						<p id="sixHeader" class="center-block text-center headerText">即刻报名 尊享试驾</p>
-
-
-					</div> 
-			    	<div id="sixthArrow" class="arrow arrowText  arrowDown animationBounce " style ="width:100%; margin-top:-35px;"></div>
-			    	<div id="sixthArrow" class="arrow center-block text-center" style ="left:0; margin-left:0; width:100%; margin-top:-35px; background-image:none;"><img style="display:none" class="arrowSize" src="images/arrow.gif"/><br/><p class="tinyText text-center" style="color:#fff;">点击报名</p></div>
-
-			    	
-			    </section>
-
-			    <section id="finalPage" name="finalPage" class="divPosition"  style="background-color:#000">
-			    	
-			    	<form role="form" class="ajax_form form-horizontal text-center center-block" id="registerForm">
-			    	
-			    		<div class=" col-sm-10 form-group ">
-							<select id="cityDDL" class="form-control" data-role="none" required>
-								<option value="">所在城市</option>
-								<option value="上海市">上海市</option>
-								<option value="苏州市">苏州市</option>
-								<option value="无锡市">无锡市</option>
-								<option value="常州市">常州市</option>
-								<option value="南通市">南通市</option>
-								<option value="扬州市">扬州市</option>
-								<option value="盐城市">盐城市</option>
-								<option value="徐州市">徐州市</option>
-								<option value="镇江市">镇江市</option>
-								<option value="杭州市">杭州市</option>
-								<option value="宁波市">宁波市</option>
-								<option value="温州市">温州市</option>
-								<option value="金华市">金华市</option>
-								<option value="台州市">台州市</option>
-								<option value="绍兴市">绍兴市</option>
-								<option value="合肥市">合肥市</option>
-								<option value="嘉兴市">嘉兴市</option>
-								<option value="湖州市">湖州市</option>
-								<option value="淮北市">淮北市</option>
-								<option value="其他">其他</option>
-							</select>
-					    </div>
-
-					    <div id="hiddenFieldCity" class="form-group" style="display:none">
-					    	<div class="col-sm-10">
-						      <input type="text" class="form-control" id="CityName" placeholder="所在城市: " value="" required/>
-						    </div>
-						</div>
-			    		
-			    		<div class="form-group ">
-					    	<div class="col-sm-10">
-						      <input type="text" class="form-control" id="Name" placeholder="姓名：" required/>
-						    </div>
-						</div>
-						<div class="form-group ">
-					    	<div class="col-sm-10">
-						      <input type="text" class="form-control" id="Gender" placeholder="性别：" required/>
-						    </div>
-						</div>
-						<div class="form-group ">
-					    	<div class="col-sm-10">
-						      <input type="text" class="form-control" id="IdentificationNo" placeholder="驾证编号：">
-						    </div>
-						</div>
-						<div class="form-group">
-					    	<div class="col-sm-10">
-						      <input type="mobile" class="form-control" id="MobileNo" placeholder="电话：" required/>
-						    </div>
-						</div>
-						<div class="form-group">
-					    	<div class="col-sm-10">
-						      <input type="text" class="form-control" id="EmailAddress" placeholder="电邮地址：">
-						    </div>
-						</div>
-
-					  	<div class="form-group">
-						    <div class="col-sm-offset-2 col-sm-10">
-						    	<button id="registerSubmitButton" type="submit" class="custom"></button>
-
-						    	<p id="formloading" style="display:none;" class="center-block text-center">提交中。。</p>
-						    </div>
-					    </div>
-
-					    <p class="subText center-block text-left">详见更多活动信息，可致电 400-818-1188<br/>或莅临各地经销商</p>
-			    	</form>
-
-			    	<div id="uploadSuccess" class="divPosition" style="display:none">
-				    	<div class="sevenPageText center-block">
-							<p id="sevenHeader" class="text-black center-block text-center headerText">您已成功报名</p>
-							<p id="sevenSub" class="text-black center-block text-center subText">恭请莅临当地经销商</p>
-
-						</div>
-
-			    		<div id="sevenArrow2" class="arrow2 arrowText  arrowDown animationBounce " style ="width:100%; margin-top:-35px;"></div>
-			    		<div id="sevenArrow" class="arrow center-block text-center" style ="left:0; margin-left:0; width:100%; margin-top:-35px; background-image:none;"><img style="display:none" class="arrowSize" src="images/arrow.gif"/><br/><p class="tinyText text-center" style="color:#000;">再看一遍</p></div>
-			    	</div>
-			    </section>
-			    <section id="empty"></section>
-
+		<section id="image-3" class="divPosition" style="background-color:#000">
+			<img id="image" class="img-responsive" src="images/3.jpg"></img>
+			<div class="thirdPageText">
+				<p id="text3" class="text-3 headerText">刷新 人生巅峰之后.</p>
+				<p id="text3sub" class="text-3 subText">至高地位在每一次成功后被刷新。与其说这是一场为自己而造的未来，不如说是一件因您而生的奇迹。</p>
 			</div>
-	</body>
+			<div id="thirdArrow" class="arrow arrowDown animationBounce"></div>
+		</section>
+
+		<section id="image-4" class="divPosition"  style="background-color:#000">
+			<img class="img-responsive" src="images/4.jpg"></img>
+			<div class="fourthPageText">
+				<p id="text4" class="text-4 headerText">梅赛德斯-奔驰S320L<br/>为人生赢家开启领袖之门</p>	      
+				<p id="text4sub" class="text-4 subText">各路精英分享人生，坐享领袖独家特权，<br/>挑战4条城市线路，亲身驾驭体验非凡。</p>
+			</div>
+			<div id="fourthArrow" class="arrow arrowDown animationBounce"></div>
+		</section>
+
+		<section id="image-5" class="divPosition"  style="background-color:#000">
+			<img id="bigcar2" class="img-responsive" src="images/bigCar.jpg"/>
+			<div id="fiveArrow" class="arrow arrowText  arrowDown animationBounce " style ="width:100%; margin-top:-35px;"></div>
+			<div id="fiveArrow" class="arrow center-block text-center" style ="left:0; margin-left:0; width:100%; margin-top:-35px; background-image:none;">
+				<img style="display:none" class="arrowSize" src="images/arrow.gif"/><br/>
+				<p class="tinyText text-center" style="color:#fff;">向上滑动<br/>了解梅赛德斯-奔驰S320L</p>
+			</div>
+		</section>
+
+
+		<section id="car-transition"  style="position:relative">
+
+			<div id="overlayBlackForCarTransition"></div>
+			
+			<img id="bigcar" class="img-responsive" src="images/bigCar.jpg"/>
+			<img id="image-6" class="img-responsive" src="images/7.jpg" style="z-index:2" />
+			<!-- <div id="carArrow" class="arrow arrowText  arrowDown animationBounce " style ="width:100%; margin-top:-45px;"></div> -->
+
+			<div id="carArrow2" class="arrow center-block text-center" style ="left:0; margin-left:0; width:100%; margin-top:-35px; background-image:none;">
+				<img style="display:none" class="arrowSize" src="images/arrow.png"/><br/>
+				<p class="tinyText text-center" style="color:#fff;">点击查看领袖座驾</p>
+			</div>
+
+			<div id="hotspot">
+				<div class='s'></div>
+			</div>
+
+			<div class="fifthPageText">
+				<p id="text5" class="text-5 headerText">S320 L定义领袖风范</p>	      
+				<p id="text5sub" class="text-5">全新梅赛德斯-奔驰S 320 L 尊贵型 领时代之先</p>
+			</div>
+
+			<!-- <div id="overlayBlack"></div> -->
+
+			<div class="row" id="gallery" >
+				<div class="col-xs-6 col-md-6 col-lg-6" style="position: absolute;top: 55%;left: 3%;">
+
+					<img id="popup1" class="img-responsive" src="images/popup1small.png" style="padding-bottom: 10px;"/>
+					<img id="popup2" class="img-responsive" src="images/popup2small.png" />
+
+
+				</div>
+				<div class="col-xs-6  col-md-6 col-lg-6" style="position: absolute;top: 50%;left: 49%;">
+					<img id="popup3" class="img-responsive" src="images/popup3small.png" style="padding-bottom: 10px;"/>
+					<img id="popup4" class="img-responsive" src="images/popup4small.png" />
+				</div>
+			</div>
+
+			<i id="icon-close" style="font-family:'entypo'; font-size: 34pt; font-style:normal; ">&#10060;</i>
+			<img id="popupLg1" src="images/popup1.jpg" />
+			<img id="popupLg2" class="img-responsive" src="images/popup2.jpg" />
+			<img id="popupLg3" class="img-responsive" src="images/popup3.jpg" />
+			<img id="popupLg4" class="img-responsive" src="images/popup4.jpg" />
+		</section>
+
+		<section id="pageSix" class="divPosition">
+			<div class="sixPageText center-block">
+				<p id="sixHeader" class="center-block text-center headerText">即刻报名 尊享试驾</p>
+
+
+			</div> 
+			<div id="sixthArrow" class="arrow arrowText  arrowDown animationBounce " style ="width:100%; margin-top:-15px;"></div>
+			<div id="sixthArrow" class="arrow center-block text-center" style ="left:0; margin-left:0; width:100%; margin-top:-15px; background-image:none;"><img style="display:none" class="arrowSize" src="images/arrow.gif"/><br/><p class="tinyText text-center" style="color:#fff;">点击报名</p></div>
+
+
+		</section>
+
+		<section id="finalPage" name="finalPage" class="divPosition"  style="background-color:#000;">
+
+			<form role="form" class="ajax_form form-horizontal text-center center-block" id="registerForm">
+
+				<div class=" col-sm-10 form-group ">
+					<select id="cityDDL" class="form-control" data-role="none" required>
+						<option value="">所在城市</option>
+						<option value="上海市">上海市</option>
+						<option value="苏州市">苏州市</option>
+						<option value="无锡市">无锡市</option>
+						<option value="常州市">常州市</option>
+						<option value="南通市">南通市</option>
+						<option value="扬州市">扬州市</option>
+						<option value="盐城市">盐城市</option>
+						<option value="徐州市">徐州市</option>
+						<option value="镇江市">镇江市</option>
+						<option value="杭州市">杭州市</option>
+						<option value="宁波市">宁波市</option>
+						<option value="温州市">温州市</option>
+						<option value="金华市">金华市</option>
+						<option value="台州市">台州市</option>
+						<option value="绍兴市">绍兴市</option>
+						<option value="合肥市">合肥市</option>
+						<option value="嘉兴市">嘉兴市</option>
+						<option value="湖州市">湖州市</option>
+						<option value="淮北市">淮北市</option>
+						<option value="其他">其他</option>
+					</select>
+				</div>
+
+				<div id="hiddenFieldCity" class="form-group" style="display:none">
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="CityName" placeholder="所在城市: " value="" required/>
+					</div>
+				</div>
+
+				<div class="form-group ">
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="Name" placeholder="姓名：" required/>
+					</div>
+				</div>
+
+				<div class=" col-sm-10 form-group ">
+					<select id="Gender" class="form-control" data-role="none" required>
+						<option value="">性别：</option>
+						<option value="先生">先生</option>
+						<option value="女士">女士</option>
+					</select>
+				</div>
+
+				<!-- <div class="form-group ">
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="Gender" placeholder="性别：" required/>
+					</div>
+
+					
+				</div> -->
+				<div class="form-group ">
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="IdentificationNo" placeholder="驾证编号：" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-10">
+						<input type="tel" class="form-control" id="MobileNo" placeholder="电话：" required/>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-10">
+						<input type="text" class="form-control invalid" id="EmailAddress" placeholder="电邮地址：" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button id="registerSubmitButton" type="submit" class="custom"></button>
+
+						<p id="formloading" style="display:none;" class="center-block text-center">提交中。。</p>
+					</div>
+				</div>
+
+				<p class="subText center-block text-left">详见更多活动信息，可致电 400-818-1188<br/>或莅临各地经销商</p>
+			</form>
+
+			<div id="uploadSuccess" class="divPosition" style="display:none">
+				<div class="sevenPageText center-block">
+					<p id="sevenHeader" class="text-black center-block text-center headerText">您已成功报名</p>
+					<p id="sevenSub" class="text-black center-block text-center subText">恭请莅临当地经销商</p>
+
+				</div>
+
+				<div id="sevenArrow2" class="arrow2 arrowText  arrowDown animationBounce " style ="width:100%; margin-top:-25px;"></div>
+				<div id="sevenArrow" class="arrow center-block text-center" style ="left:0; margin-left:0; width:100%; margin-top:-25px; background-image:none;"><img style="display:none" class="arrowSize" src="images/arrow.gif"/><br/><p class="tinyText text-center" style="color:#000;">再看一遍</p></div>
+			</div>
+		</section>
+		<section id="empty"></section>
+	</div>
+</body>
 
 </html>

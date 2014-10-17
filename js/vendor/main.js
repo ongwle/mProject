@@ -1,4 +1,4 @@
-var height,width,bgMusic,imgs, formPosition;
+var height,width,bgMusic,imgs;
 
 var url = "http://180.169.22.67:6012/api/Registration";
 
@@ -47,7 +47,6 @@ $(function(){
     $("#hotspot").bind("vmousedown", triggerHotspotImage);
 
     function triggerHotspotImage(event){
-        document.removeEventListener('touchmove', touchEvent, false);
         $("#hotspot").fadeOut(1000);
          $("#image-6").delay(500).fadeOut(800, function(){
             $("#image-6").attr('src','images/5.jpg').fadeIn(800);
@@ -133,8 +132,6 @@ $(document).ready(function() {
       return typeof document.createElement('input').checkValidity === 'function';
     }
 
-   
-
     $("#cityDDL").change(function() {
         var cityName = $(this).val();
         if($(this).val() == "其他"){
@@ -151,6 +148,7 @@ $(document).ready(function() {
 
         e.preventDefault();
 
+        var emailString = (($("#EmailAddress").val()).trim());
         
          if (hasHtml5Validation()) {
             if (!this.checkValidity()) {
@@ -160,6 +158,18 @@ $(document).ready(function() {
               $(this).removeClass('invalid');
             }
         }
+
+        if(emailString.length != 0){
+            if(!validateEmail(emailString)){
+                $("#EmailAddress").css('border', '2px solid #ff0012');
+                return;
+            }else{
+                $("#EmailAddress").css('border', '1px solid #FFF');
+            }
+        }else{
+            $("#EmailAddress").css('border', '1px solid #FFF');
+        }
+
 
         $("form.ajax_form input").blur();
         location.hash = "#finalPage";
@@ -227,6 +237,7 @@ $(document).ready(function() {
     $("#popup2").hide();
     $("#popup3").hide();
     $("#popup4").hide();
+    $("#musicPlayer").hide();
 
     var thumbprint = $(".pointer");
 
@@ -242,6 +253,8 @@ $(document).ready(function() {
     }));
 
     button.on('press', function(event) {
+        $("#musicPlayer").show();
+        bgMusic = document.getElementById("song");
         bgMusic.play();
         document.removeEventListener('touchmove', touchEvent, false);
         //img.swipe('enable');
@@ -253,7 +266,7 @@ $(document).ready(function() {
          $('#firstPage').delay(600).css({'display':'block', 'opacity':'1'});
         firstScreenAnimation();
 
-         $('#image-2').show();
+        $('#image-2').show();
         $('#image-3').show();
         $('#image-4').show();
         $("#image-5").show();
@@ -262,9 +275,6 @@ $(document).ready(function() {
         $("#finalPage").show();
 
     });
-
-
-    bgMusic = document.getElementById("song");
 
     $("img").load(function() {
 
@@ -352,7 +362,6 @@ $(document).ready(function() {
             }
 
             function checkCurrentImage(value){
-                console.log(value);
                 switch (value) { 
                     case 0: displayText('firstPageText');
                         break;
@@ -361,26 +370,15 @@ $(document).ready(function() {
                     case 2: displayText('text-3');
                         break;
                     case 3: displayText('text-4');
-                            $("#image-6").stop(true,true);
-                            $("#hotspot").stop(true,true);
-                            $("#carArrow").stop(true,true);
-                            $("#bigcar").stop(true,true);
-                            $('#bigcar').removeClass("expand2");
-                            $("#bigcar").attr('src','');
+                            stopCarDelay();
                         break;
                     case 5: carTransition();
                         break; 
                     case 6:
-                            $("#image-6").stop(true,true);
-                            $("#hotspot").stop(true,true);
-                            $("#carArrow").stop(true,true);
-                            $("#bigcar").stop(true,true);
-                            $('#bigcar').removeClass("expand2");
-                            $("#bigcar").attr('src','');
+                        stopCarDelay();
                         displayText('sixPage');
                         break;
                     case 7:
-                        formPosition = IMG_HEIGHT * currentImg;
                         imgs.swipe("disable"); 
                         break;
                     case 8:
@@ -486,27 +484,29 @@ $(document).ready(function() {
 
 
 
-                $("#image-6").attr('src','images/7.jpg');
+                
 
                 $("#bigcar").css({'display':'block', 'opacity':'1'}); 
             
                 $("#bigcar").attr('src','images/bigCar.jpg').addClass("expand2");
 
-                $("#bigcar").delay(5000).fadeOut(7500, function() {
+               
+                //$("#image-6").attr('src','images/7.jpg');
+
+                // $("#image-6").attr('src','images/7.jpg').delay(4000).fadeIn(3500, function(){
+                //     $("#hotspot").delay(300).fadeIn(1500);
+                //     $("#carArrow2").delay(200).fadeIn(1500);
+                // });
+                $("#bigcar").delay(3000).fadeOut(4500, function() {
                     $('#bigcar').removeClass("expand2");
                     $("#bigcar").attr('src','');
                 });
 
-                $("#image-6").delay(5000).fadeIn(1500, function(){
-                    $("#hotspot").delay(300).fadeIn(1500);
-                    // $("#carArrow").delay(200).fadeIn(1500);
-                    $("#carArrow2").delay(200).fadeIn(1500);
-                    //imgs.swipe("enable");
-
-                    
+                $("#image-6").delay(3000).attr('src','images/7.jpg').fadeIn(1500,function(){
+                    $("#hotspot").delay(500).fadeIn(1500);
+                    $("#carArrow2").delay(400).fadeIn(1500);
                 });
 
-                
             }    
         });
     });
@@ -514,10 +514,10 @@ $(document).ready(function() {
 
 
 function firstScreenAnimation(){
-    $('#first').delay(600).addClass("expand");
-    $("#firstHeader").delay(1800).fadeIn(1500);
-    $("#firstSub").delay(2000).fadeIn(1500);
-    $("#firstArrow").delay(2600).fadeIn(1500);
+    $('#first').delay(300).addClass("expand");
+    $("#firstHeader").delay(1500).fadeIn(1500);
+    $("#firstSub").delay(1700).fadeIn(1500);
+    $("#firstArrow").delay(2300).fadeIn(1500);
 }
 
 function secondAnimation(){
@@ -640,6 +640,18 @@ function imageAnimationHide(){
     $("#popupLg4").hide();
 }
 
+function stopCarDelay(){
+
+    $("#image-6").stop(true,true);
+    $("#hotspot").stop(true,true);
+    $("#carArrow2").stop(true,true);
+    $("#bigcar").stop(true,true);
+
+    $('#bigcar').removeClass("expand2");
+    $("#bigcar").attr('src','');
+    $("#image-6").attr('src','');
+}
+
 
 function toggleMusic(){
 
@@ -650,5 +662,10 @@ function toggleMusic(){
         bgMusic.pause();
         $(".music-btn").addClass("on");
     }
-
 }
+
+
+function validateEmail(email) { 
+   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+   return re.test(email);
+} 
