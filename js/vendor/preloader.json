@@ -1,0 +1,231 @@
+{
+    "files": [
+      {
+        "type":"AUDIO",
+        "sources": {
+          "mp3":{
+            "source":"images/Freeflight.mp3",
+            "size":1102.172
+          }
+        }
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/9.jpg",
+        "size":364
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/1.jpg",
+        "size":358
+      },
+       {
+        "type":"IMAGE",
+        "source":"images/landingBG.jpg",
+        "size":350
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/3.jpg",
+        "size":256
+      },
+      {
+        "type":"SCRIPT",
+        "source":"js/vendor/jquery.mobile-1.4.4.min.js",
+        "size":195,
+        "stopExecution":false
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/4.jpg",
+        "size":117
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/8.jpg",
+        "size":117
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/thumbPrint_red.png",
+        "size":112
+      },
+      {
+        "type": "CSS",
+        "source": "css/bootstrap.min.css",
+        "size": 107
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/2.jpg",
+        "size":105
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/5.jpg",
+        "size":91
+      },
+      {
+        "type":"SCRIPT",
+        "source":"js/bootstrap/jquery-2.1.1.min.js",
+        "size":82.6,
+        "stopExecution":false
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/bigCar.jpg",
+        "size":79.4
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/thumbPrint_white.png",
+        "size":79.2
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/popup3small.png",
+        "size":75
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/popup4small.png",
+        "size":74
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/7.jpg",
+        "size":71
+      },
+      {
+        "type":"SCRIPT",
+        "source":"js/vendor/jquery.touchSwipe.js",
+        "size":69.5,
+        "stopExecution":false
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/popup2small.png",
+        "size":68.3
+      },
+      {
+        "type":"SCRIPT",
+        "source":"js/vendor/hammer.js",
+        "size":66.3,
+        "stopExecution":false
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/popup1small.png",
+        "size":54
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/6.jpg",
+        "size":45
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/popup3.jpg",
+        "size":43.4
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/popup4.jpg",
+        "size":42.9
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/final.jpg",
+        "size":39.6
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/popup2.jpg",
+        "size":39.4
+      },
+      {
+        "type":"SCRIPT",
+        "source":"js/bootstrap/bootstrap.min.js",
+        "size":31.4,
+        "stopExecution":false
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/popup1.jpg",
+        "size":29.8
+      },
+      {
+        "type": "CSS",
+        "source": "css/font-awesome.css",
+        "size": 26.3
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/logo.png",
+        "size":25.9
+      },
+      {
+        "type":"SCRIPT",
+        "source":"js/vendor/main.js",
+        "size":21.1,
+        "stopExecution":false
+      },
+      {
+        "type":"SCRIPT",
+        "source":"js/vendor/jquery.html5Loader.js",
+        "size":17.4,
+        "stopExecution":false
+      },
+      {
+        "type": "CSS",
+        "source": "css/styles.css",
+        "size": 16
+      },
+      {
+        "type": "CSS",
+        "source": "css/hotspot.css",
+        "size": 14.3
+      },
+      {
+        "type":"SCRIPT",
+        "source":"js/vendor/modernizr.js",
+        "size":11.3,
+        "stopExecution":false
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/submitBtn.png",
+        "size":98
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/arrow.gif",
+        "size":4
+      },
+      {
+        "type": "CSS",
+        "source": "css/stylesheet.css",
+        "size": 2.7
+      },
+      {
+        "type": "CSS",
+        "source": "css/button.css",
+        "size": 1.8
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/arrow2.png",
+        "size":1.6
+      },
+      {
+        "type": "CSS",
+        "source": "css/image.css",
+        "size": 1.4
+      },
+      {
+        "type":"IMAGE",
+        "source":"images/arrow.png",
+        "size":4
+      }
+    ]
+}

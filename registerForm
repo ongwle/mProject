@@ -1,0 +1,124 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Mercedes Benz</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/image.css" />
+
+	<link rel="stylesheet" href="css/stylesheet.css?p=101"/>
+	<link rel="stylesheet" href="css/button.css" />
+	<link rel="stylesheet" href="css/font-awesome.css"/>
+	<link rel="stylesheet" href="css/styles.css?p=101"/>
+	<link rel="stylesheet" href="css/hotspot.css?p=101"/>
+
+
+	<script src="js/bootstrap/jquery-2.1.1.min.js"></script>
+	<script src="js/vendor/jquery.mobile-1.4.4.min.js"></script>
+	<script src="js/bootstrap/bootstrap.min.js"></script>
+	<script src="js/vendor/hammer.js"></script>
+
+	<script src="js/vendor/modernizr.js"></script>
+	<script src="js/vendor/jquery.touchSwipe.js"></script>
+	<script src="js/vendor/main.js"></script>
+
+</head>
+
+<body>
+<section id="finalPage" name="finalPage" class="divPosition"  style="background-color:#000; width:100%; height:100%;">
+
+		<form role="form" class="ajax_form form-horizontal text-center center-block" id="registerForm">
+
+			<div class=" form-group ">
+				<select id="cityDDL" class="form-control" data-role="none" required>
+					<option value="">所在城市</option>
+					<option value="上海市">上海市</option>
+					<option value="苏州市">苏州市</option>
+					<option value="无锡市">无锡市</option>
+					<option value="常州市">常州市</option>
+					<option value="南通市">南通市</option>
+					<option value="扬州市">扬州市</option>
+					<option value="盐城市">盐城市</option>
+					<option value="徐州市">徐州市</option>
+					<option value="镇江市">镇江市</option>
+					<option value="杭州市">杭州市</option>
+					<option value="宁波市">宁波市</option>
+					<option value="温州市">温州市</option>
+					<option value="金华市">金华市</option>
+					<option value="台州市">台州市</option>
+					<option value="绍兴市">绍兴市</option>
+					<option value="合肥市">合肥市</option>
+					<option value="嘉兴市">嘉兴市</option>
+					<option value="湖州市">湖州市</option>
+					<option value="淮北市">淮北市</option>
+					<option value="其他">其他</option>
+				</select>
+			</div>
+
+			<div id="hiddenFieldCity" class="form-group" style="display:none">
+				<div>
+					<input type="text" class="form-control" id="CityName" placeholder="所在城市: " value="" required/>
+				</div>
+			</div>
+
+			<div class="form-group ">
+				<div class="">
+					<input type="text" class="form-control" id="Name" placeholder="姓名：" required/>
+				</div>
+			</div>
+
+			<div class="  form-group ">
+				<select id="Gender" class="form-control" data-role="none" required>
+					<option value="">性别：</option>
+					<option value="先生">先生</option>
+					<option value="女士">女士</option>
+				</select>
+			</div>
+
+		<!-- <div class="form-group ">
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="Gender" placeholder="性别：" required/>
+			</div>
+
+			
+		</div> -->
+		<div class="form-group ">
+			<div class="">
+				<input type="text" class="form-control" id="IdentificationNo" placeholder="驾证编号：" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="">
+				<input type="tel" class="form-control" id="MobileNo" placeholder="电话：" required/>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="">
+				<input type="text" class="form-control invalid" id="EmailAddress" placeholder="电邮地址：" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="">
+				<button id="registerSubmitButton" type="submit" class="custom"></button>
+
+				<p id="formloading" style="display:none;" class="center-block text-center">提交中。。</p>
+			</div>
+		</div>
+
+		<p class="subText center-block text-left">详见更多活动信息，可致电 400-818-1188<br/>或莅临各地经销商</p>
+	</form>
+
+	<div id="uploadSuccess" class="divPosition" style="display:none">
+		<div class="sevenPageText center-block">
+			<p id="sevenHeader" class="text-black center-block text-center headerText">您已成功报名</p>
+			<p id="sevenSub" class="text-black center-block text-center subText">恭请莅临当地经销商</p>
+
+		</div>
+
+		<div id="sevenArrow2" class="arrow2 arrowText  arrowDown animationBounce " style ="width:100%; margin-top:-25px;"></div>
+		<div id="sevenArrow" class="arrow center-block text-center" style ="left:0; margin-left:0; width:100%; margin-top:-25px; background-image:none;"><img style="display:none" class="arrowSize" src="images/arrow.gif"/><br/><p class="tinyText text-center" style="color:#000;">再看一遍</p></div>
+	</div>
+</section>
+</body>
+</html>

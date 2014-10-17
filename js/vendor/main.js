@@ -1,10 +1,23 @@
 var height,width,bgMusic,imgs;
+var webDomain="http://192.168.1.11:8888/mProject/";
 
 var url = "http://180.169.22.67:6012/api/Registration";
 
 var touchEvent = function(event){
     event.preventDefault();
 }
+
+// $.html5Loader({
+//     filesToLoad:    'js/vendor/preloader.json', // this could be a JSON or simply a javascript object
+//         onBeforeLoad:       function () {},
+//         onComplete:         function () {},
+//         onElementLoaded:    function ( obj, elm) {},
+//         onUpdate:           function ( percentage ) {
+//         $('#percent').html(percentage+"%"); 
+//         },
+//         debugMode: 'disable'
+//         });
+
 
 $(window).load(function() { // makes sure the whole site is loaded
     height = $(window).height();
@@ -14,6 +27,8 @@ $(window).load(function() { // makes sure the whole site is loaded
     $('.arrow2').css('top',(height-50)+'px');
     $('.arrowText').css('top',(height-70)+'px');
     $('.arrowText2').css('top',(height-81)+'px');
+    $('#gallery').css('top',(height-(height/2))+'px');
+
 
     //$('.pointer').css('top',(height/2)+'px');
 
@@ -24,8 +39,12 @@ $(window).load(function() { // makes sure the whole site is loaded
     // if(height < width){
     //     $("#horizontalDisplay").delay(500).css({'display':'block'});
     // }
+
+    //$("#percent").html('100%');
     document.addEventListener('touchmove', touchEvent, false);
 });
+
+
 
 $(function(){
   $(".pointer").bind( "vmouseup", tapRelease );
@@ -53,6 +72,7 @@ $(function(){
             carAnimation();
             popupAnimation();
          });
+         imgs.swipe("enable");
          
     }
 });
@@ -116,6 +136,24 @@ $(function(){
 
 });
 
+// $(function(){
+//     $("#sevenArrow2").bind("vmousedown", showImgs);
+//     $("#sevenArrow").bind("vmousedown", showImgs);
+
+//     function showImgs(event){
+
+//         imgs.swipe("disable"); 
+//         imgs.css("-webkit-transform", "translate3d(0px,0px,0px)");
+//         imgs.swipe("enable");
+//         currentImg=0;
+//         firstScreenAnimation();
+
+//     }
+// });
+// $('#EmailAddress').on('focus', function() {
+//     document.body.scrollTop = $(this).offset().top;
+// });
+
 // $(window).on('resize', function(){
 //         if($(window).height()-$(window).width() < 150){
 //             $("#horizontalDisplay").delay(500).css({'display':'block'});
@@ -127,6 +165,8 @@ $(function(){
 //     });
             
 $(document).ready(function() {
+
+
 
     function hasHtml5Validation () {
       return typeof document.createElement('input').checkValidity === 'function';
@@ -142,7 +182,21 @@ $(document).ready(function() {
             $("#hiddenFieldCity").hide();
             $("#CityName").val(cityName);
         }
-    }); 
+    });
+
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+
+        // share to friend
+        WeixinJSBridge.on('menu:share:appmessage', function(argv){
+            shareWeiXinFriend();
+            });
+
+        // share to timeline
+        WeixinJSBridge.on('menu:share:timeline', function(argv){
+            shareWeiXinTimeLine();
+            });
+
+        }, false);
 
     $("form.ajax_form").submit(function(e){
 
@@ -201,7 +255,9 @@ $(document).ready(function() {
                     imgs.swipe("enable"); 
                     if (msg && msg.Status === true) {
                         $("#uploadSuccess").show();
+                        $("#finalPageForm").hide();
                         sevenAnimation();
+                        imgs.swipe("enable"); 
                     } else {
                         $("#registerSubmitButton").show();
                         alert("Unable to register. Please Try Again.");
@@ -272,7 +328,7 @@ $(document).ready(function() {
         $("#image-5").show();
         $('#car-transition').show();
         $("#pageSix").show();
-        $("#finalPage").show();
+        //$("#finalPage").show();
 
     });
 
@@ -379,9 +435,13 @@ $(document).ready(function() {
                         displayText('sixPage');
                         break;
                     case 7:
+                        //show form
+                        $("#finalPageForm").delay(4500).show();
+                        $("#uploadSuccess").hide();
                         imgs.swipe("disable"); 
                         break;
                     case 8:
+
                         imgs.swipe("disable"); 
                         imgs.css("-webkit-transform", "translate3d(0px,0px,0px)");
                         imgs.swipe("enable");
@@ -469,7 +529,7 @@ $(document).ready(function() {
 
             function carTransition() {
 
-                //imgs.swipe("disable"); 
+                
 
                 secondAnimationHide();
                 threeAnimationHide();
@@ -483,7 +543,7 @@ $(document).ready(function() {
                 popupAnimationHide();
 
 
-
+                imgs.swipe("disable"); 
                 
 
                 $("#bigcar").css({'display':'block', 'opacity':'1'}); 
@@ -497,7 +557,7 @@ $(document).ready(function() {
                 //     $("#hotspot").delay(300).fadeIn(1500);
                 //     $("#carArrow2").delay(200).fadeIn(1500);
                 // });
-                $("#bigcar").delay(3000).fadeOut(4500, function() {
+                $("#bigcar").delay(3000).fadeOut(3500, function() {
                     $('#bigcar').removeClass("expand2");
                     $("#bigcar").attr('src','');
                 });
@@ -552,6 +612,7 @@ function carAnimation(){
     $("#text5").delay(1500).fadeIn(1500);
     $("#text5sub").delay(2000).fadeIn(1500);
     $("#gallery").delay(2500).fadeIn(1500);
+    
 }
 
 function popupAnimation(){
@@ -598,6 +659,7 @@ function sixAnimationHide(){
 
 function sevenAnimationHide(){
     $("#uploadSuccess").hide();
+    $("#finalPageForm").hide();
     $("#sevenArrow").hide();
     $("#sevenArrow2").hide();
     $("#hiddenFieldCity").hide();
@@ -642,10 +704,11 @@ function imageAnimationHide(){
 
 function stopCarDelay(){
 
+    $("#bigcar").stop(true,true);
     $("#image-6").stop(true,true);
     $("#hotspot").stop(true,true);
     $("#carArrow2").stop(true,true);
-    $("#bigcar").stop(true,true);
+    
 
     $('#bigcar').removeClass("expand2");
     $("#bigcar").attr('src','');
@@ -663,6 +726,57 @@ function toggleMusic(){
         $(".music-btn").addClass("on");
     }
 }
+
+function shareWeiXinFriend()
+   {
+       detectWeixinApi(function () {
+           WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+               WeixinJSBridge.invoke('sendAppMessage', {
+                   "appid": "",//appid 设置空就好了。
+                   "img_url": webDomain + "/images/icon.png",//分享时所带的图片路径
+                   "img_width": "120",//图片宽度
+                   "img_height": "120",//图片高度
+                   "link": webDomain  ,
+                   "desc": "梅赛德斯-奔驰S级风景试驾",
+                   "title": "定义领袖风范、魅力试不可挡"
+               }, function (res) {
+                   if (res != null && res != undefined
+                        && res.err_msg != null && res.err_msg != undefined
+                        && res.err_msg == "send_app_msg:ok") {
+                       alert("分享成功！");
+                   }
+               });
+           });
+       });
+   }
+  //  分享微信朋友圈
+   function shareWeiXinTimeLine() {
+       detectWeixinApi(function () {
+           WeixinJSBridge.on('menu: share: timeline', function (argv) {
+               WeixinJSBridge.invoke('shareTimeline', {
+                   "appid": "",//appid 设置空就好了。
+                   "img_url": webDomain + "/images/icon.png",//分享时所带的图片路径
+                   "img_width": "120",//图片宽度
+                   "img_height": "120",//图片高度
+                   "link": webDomain  ,
+                   "desc": "梅赛德斯-奔驰S级风景试驾",
+                   "title": "定义领袖风范、魅力试不可挡"
+               }, function (res) {
+                   alert("分享成功！");
+               });
+           });
+       });
+   }
+    
+    function detectWeixinApi(callback) {
+       if (typeof window.WeixinJSBridge == 'undefined' || typeof window.WeixinJSBridge.invoke == 'undefined') {
+           setTimeout(function () {
+               detectWeixinApi(callback);
+           }, 200);
+       } else {
+           callback();
+       }
+    }
 
 
 function validateEmail(email) { 
