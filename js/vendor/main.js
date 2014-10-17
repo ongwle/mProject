@@ -263,6 +263,7 @@ $(document).ready(function() {
 
     });
 
+
     bgMusic = document.getElementById("song");
 
     $("img").load(function() {
@@ -470,12 +471,7 @@ $(document).ready(function() {
 
             function carTransition() {
 
-                $("#pop-up1").hide();
-                $("#pop-up2").hide();
-                $("#pop-up3").hide();
-                $("#pop-up4").hide();
-                $("#hotspot").hide();
-
+                //imgs.swipe("disable"); 
 
                 secondAnimationHide();
                 threeAnimationHide();
@@ -488,6 +484,8 @@ $(document).ready(function() {
 
                 popupAnimationHide();
 
+
+
                 $("#image-6").attr('src','images/7.jpg');
 
                 $("#bigcar").css({'display':'block', 'opacity':'1'}); 
@@ -497,34 +495,19 @@ $(document).ready(function() {
                 $("#bigcar").delay(5000).fadeOut(7500, function() {
                     $('#bigcar').removeClass("expand2");
                     $("#bigcar").attr('src','');
-
                 });
 
-                 $("#image-6").delay(5000).fadeIn(1500, function(){
+                $("#image-6").delay(5000).fadeIn(1500, function(){
                     $("#hotspot").delay(300).fadeIn(1500);
                     // $("#carArrow").delay(200).fadeIn(1500);
                     $("#carArrow2").delay(200).fadeIn(1500);
                     //imgs.swipe("enable");
+
+                    
                 });
 
-            }
-
-            function buttonPressOnDoor(){    
-            // InteriorCar();
-                alert("working");
-                $("#image-6").delay(800).fadeOut(1500, function() {
-                    $("#image-6").attr('src','images/5.jpg');
-                });
-            }
- 
-            function InteriorCar(){
-
-                $("#pop-up1").delay(1000).fadeIn(1000);
-                $("#pop-up2").delay(1500).fadeIn(1000);
-                $("#pop-up3").delay(2000).fadeIn(1000);
-                $("#pop-up4").delay(2500).fadeIn(1000);
-            }
-
+                
+            }    
         });
     });
 });
