@@ -1,3 +1,67 @@
+
+#popup1 {
+	z-index: 1000;
+	border: 0;
+/*	position: absolute;*/
+	-webkit-box-shadow: -2px 1px 25px -5px rgba(12,91,227,1);
+	-moz-box-shadow: -2px 1px 25px -5px rgba(12,91,227,1);
+	box-shadow: -2px 1px 25px -5px rgba(12,91,227,1);
+}
+#popup2 {
+	z-index: 1000;
+	border: 0;
+	/*position: absolute;*/
+	-webkit-box-shadow: -2px 1px 25px -5px rgba(12,91,227,1);
+	-moz-box-shadow: -2px 1px 25px -5px rgba(12,91,227,1);
+	box-shadow: -2px 1px 25px -5px rgba(12,91,227,1);
+}
+#popup3 {
+	z-index: 1000;
+	border: 0;
+	/*position: absolute;*/
+	-webkit-box-shadow: -2px 1px 25px -5px rgba(12,91,227,1);
+	-moz-box-shadow: -2px 1px 25px -5px rgba(12,91,227,1);
+	box-shadow: -2px 1px 25px -5px rgba(12,91,227,1);
+}
+#popup4 {
+	z-index: 1000;
+	border: 0;
+	/*position: absolute;*/
+	-webkit-box-shadow: -2px 1px 25px -5px rgba(12,91,227,1);
+	-moz-box-shadow: -2px 1px 25px -5px rgba(12,91,227,1);
+	box-shadow: -2px 1px 25px -5px rgba(12,91,227,1);
+}
+
+#popupLg1 {
+	border: 0;
+	position: absolute;
+	z-index: 5001;
+	top: 30%;
+	width: 100%;
+}
+
+
+#popupLg2 {
+	position: absolute;
+	z-index: 5001;
+	top: 30%;
+	width: 100%;
+}
+
+#popupLg3 {
+	position: absolute;
+	z-index: 5001;
+	top: 30%;
+	width: 100%;
+}
+
+#popupLg4 {
+	position: absolute;
+	z-index: 5001;
+	top: 30%;
+	width: 100%;
+}
+
 #hotspot {
     width: 3em;
     height: 4em;
@@ -5,48 +69,18 @@
     padding: 0;
 	border: none;
 /*background: none;*/
-    background: transparent url(../images/hotspot.gif) .5em 50% no-repeat;
+    /*background: transparent url(../images/hotspot.gif) .5em 50% no-repeat;*/
     z-index: 1000;
     position: absolute;
-    left: 38%;
-    left: 70%;
-    bottom:10%;
+    left: 65%;
+    top:47%;
 }
 
-input#pop-up1    {
-	background:url(../images/popup1.jpg);
-	background-repeat: no-repeat;
-	width:40px;
-	height:40px;
-	border: 0;
+#icon-close {
 	position: absolute;
-}
-input#pop-up2    {
-	background:url(../images/popup2.jpg);
-	background-repeat: no-repeat;
-	width:40px;
-	height:40px;
-	border: 0;
-	position: absolute;
-}
-input#pop-up3    {
-	background:url(../images/popup3.jpg);
-	background-repeat: no-repeat;
-	width:40px;
-	height:40px;
-	border: 0;
-	position: absolute;
-}
-input#pop-up4    {
-	background:url(../images/popup4.jpg);
-	background-repeat: no-repeat;
-	width:40px;
-	height:40px;
-	border: 0;
-	position: absolute;
+	z-index: 5002;
+	top: 30%;
+	width: 100%;
+	left: 92%;
 }
 
-.enlarge:visited {
-	transform:scale(2,2);
-	transform-origin:0 0;
-}
